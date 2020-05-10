@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Car_Parking.View;
+using System.IO;
 
 namespace Car_Parking
 {
@@ -40,6 +42,25 @@ namespace Car_Parking
         {
             ButtonOpenMenu.Visibility = Visibility.Visible;
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UserControl usc = null;
+            GridMain.Children.Clear();
+
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "UserHome":
+                    Main.Navigate(new UserHome());
+                    break;
+                case "UserAuto":
+                    Main.Navigate(new UserAuto());
+                    break;
+                default:
+                    break;
+            }
 
         }
     }

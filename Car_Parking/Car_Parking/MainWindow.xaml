@@ -6,84 +6,101 @@
         xmlns:local="clr-namespace:Car_Parking"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1080" ResizeMode="NoResize" WindowStyle="None" >
+        Title="MainWindow" Height="600" Width="1080" ResizeMode="CanResize" WindowStyle="ToolWindow">
+    
+    
+    
     <Window.Resources>
-        <Storyboard x:Key="MenuOpen">
+        <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame  KeyTime="0" Value="50"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="MenuClose">
+        <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="50"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
-
     <Window.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
         </EventTrigger>
     </Window.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
 
-    <Grid Background="#FF353434">
-        <Grid Height="60" VerticalAlignment="Top" Background="#FFFFE600">
-            <TextBlock Text="Car Parking" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right" >
-                <TextBlock Text="Nikita Yakovlev" VerticalAlignment="Center" FontSize="14"></TextBlock>
-                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
-                    <StackPanel Width="150">
-                        <Button Content="Account"/> 
-                        <Button Content="Settings"/> 
-                        <Button Content="Help"/>
-                        <Separator/>
-                        <Button x:Name="ButtonPopUpLogout" Content="Logout" Click="ButtonPopUpLogout_Click"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="GridMain" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"  Height="Auto" Width="Auto" Background="#FF353434">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="907*"/>
+                <ColumnDefinition Width="117*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="31*"/>
+                <RowDefinition Height="55*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Frame NavigationUIVisibility="Hidden" x:Name="Main" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"  Height="Auto" Width="Auto" Background="#FF353434"/>
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2"  FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="0"   Background="#FFBF00">
+            <materialDesign:PopupBox HorizontalAlignment="Right" PlacementMode="BottomAndAlignLeftEdges" StaysOpen="False" Margin="10" Foreground="#FF353434">
+                <StackPanel Width="100">
+                    <Button Content="Settings"/>
+                    <Button Content="Account" FontFamily="Arial"/>
+                    <Button Content="Help"/>
+                    <Separator/>
+                    <Button Content="Logout"/>
+                </StackPanel>
+            </materialDesign:PopupBox>
+            <TextBlock Text="Pop Smoke" HorizontalAlignment="Right" VerticalAlignment="Center"  FontSize="25" Margin="0 0 0 5" Foreground="#FF353434"/>
+
+        </StackPanel>
+
+
+        <StackPanel x:Name="GridMenu" Width="50" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Left" Background="#FF353434"
+>
+            <Button x:Name="ButtonOpenMenu" Height="60" Width="50"  HorizontalAlignment="Right"  VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click">
+                <materialDesign:PackIcon Kind="Menu" Width="25" Height="25" Foreground="#FFBF00"/>
+            </Button>
+            <Button x:Name="ButtonCloseMenu" Height="60" Visibility="Collapsed" Width="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click">
+                <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25" Foreground="#FFBF00"/>
+            </Button>
+            <ListView  x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
+                <ListViewItem Height="150"/>
+                <ListViewItem x:Name="UserHome" Height="50">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountOutline" Width="35" Height="35" Foreground="#FFBF00"/>
+                        <TextBlock Text="UserHome" VerticalAlignment="Center" FontFamily="Noto Sans Lao"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
                     </StackPanel>
-                </materialDesign:PopupBox>
-            </StackPanel>
-        </Grid>
-        <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FFFFE600">
-            <StackPanel>
-                <Grid Height="150" Background="#FF353434">
-                    <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
-                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
-                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
-                    </Button>
-                </Grid>
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewDashboard" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Pencil" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Create" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Ticket" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Tickets" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Message" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Messages" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
-            </StackPanel>
-        </Grid>
+                </ListViewItem>
+                <ListViewItem x:Name="UserAuto" Height="50">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="About"  Width="35" Height="35" Foreground="#FFBF00"/>
+                        <TextBlock Text="UserAuto" VerticalAlignment="Center" FontFamily="Noto Sans Lao"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="50">
+
+                    <StackPanel Orientation="Horizontal" >
+                        <materialDesign:PackIcon Kind="About"   Width="35" Height="35" Foreground="#FFBF00"/>
+                        <TextBlock Text="*" VerticalAlignment="Center" FontFamily="Noto Sans Lao"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
+                    </StackPanel>
+
+                </ListViewItem>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Window>
