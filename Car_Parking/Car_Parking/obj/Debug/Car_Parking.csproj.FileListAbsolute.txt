@@ -33,7 +33,6 @@ D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\WPFLocalizeExtension.xml
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\XAMLMarkupExtensions.pdb
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\XAMLMarkupExtensions.xml
-D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\ViewModel\UserViewModel.g.cs
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\UserHome.g.cs
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\ViewLogin.g.cs
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\ViewRegister.g.cs
@@ -73,8 +72,11 @@ D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\ViewLogin.baml
-D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\ViewModel\UserViewModel.baml
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\ViewRegister.baml
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\UserHome.baml
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\UserAuto.g.cs
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\UserAuto.baml
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\en\Car_Parking.resources.dll
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\Car_Parking.Properties.Resources.en.resources
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\en\Car_Parking.resources.dll
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\GeneratedInternalTypeHelper.g.cs

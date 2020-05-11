@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="accept_button_blank" xml:space="preserve">
-    <value>ПОДТВЕРДИТЬ</value>
+    <value>ACCEPT</value>
   </data>
   <data name="car_number" xml:space="preserve">
-    <value>Номер авто :</value>
+    <value>Car number</value>
   </data>
   <data name="car_region" xml:space="preserve">
-    <value>Регион :</value>
+    <value>Region</value>
   </data>
   <data name="car_series" xml:space="preserve">
-    <value>Серия :</value>
+    <value>Series</value>
   </data>
   <data name="comment" xml:space="preserve">
-    <value>Коментарий :</value>
+    <value>Comment</value>
   </data>
   <data name="comment_example" xml:space="preserve">
-    <value>Напишите коментарий</value>
+    <value>Write a comment</value>
   </data>
   <data name="lease_time" xml:space="preserve">
-    <value>Время аренды :</value>
+    <value>Lease time</value>
   </data>
   <data name="mainwindow_language_button" xml:space="preserve">
-    <value>РУС</value>
+    <value>EN</value>
   </data>
   <data name="phone_number" xml:space="preserve">
-    <value>Номер телефона :</value>
+    <value>Phone number</value>
   </data>
   <data name="rules_lable" xml:space="preserve">
-    <value>Правила пользования парковкой</value>
+    <value>The rules of Parking</value>
   </data>
   <data name="rule_1" xml:space="preserve">
-    <value>1. Открытые парковки г. Минска функционируют в платном режиме в будние дни с 09.00 до 18.00. В остальное время, а также в выходные и праздничные дни – парковка бесплатна.</value>
+    <value>1. Open Parking lots in Minsk operate in paid mode on weekdays from 09.00 to 18.00. During the rest of the day, as well as on weekends and holidays, Parking is free.</value>
   </data>
   <data name="rule_2" xml:space="preserve">
-    <value>2. Способы оплаты на различных парковках могут отличаться.</value>
+    <value>2. Payment methods at different car parks may vary.</value>
   </data>
   <data name="rule_3" xml:space="preserve">
-    <value>3. После размещения транспортного средства на парковочном месте на территории платной автомобильной парковки необходимо осуществить оплату.</value>
+    <value>3. after placing the vehicle in a Parking space on the territory of a paid car Park, payment must be made.</value>
   </data>
   <data name="rule_4" xml:space="preserve">
-    <value>4. Покинуть парковочное место необходимо незамедлительно после истечения сеанса парковки (оплаченного времени).</value>
+    <value>4. Leave the Parking space immediately after the end of the Parking session (paid time).</value>
   </data>
 </root>

@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Car_Parking.View"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:viewmodel="clr-namespace:Car_Parking.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserHome" Background="#FF353434">
@@ -20,37 +21,9 @@
             <RowDefinition Height="0.2*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0" Margin="20" VerticalAlignment="Center">
-            <Label Content="Номер авто :" FontSize="20" Foreground="#FFBF00" Height="50"/>
-            <Label Content="Регион :" FontSize="20" Foreground="#FFBF00" Height="50"/>
-            <Label Content="Время брони :" FontSize="20" Foreground="#FFBF00" Height="50"/>
-        </StackPanel>
 
-        <StackPanel Grid.Column="1" Margin="20" VerticalAlignment="Center">
-            <TextBox materialDesign:HintAssist.Hint="Floating Hint" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  VerticalAlignment="Center"  Foreground="#FFBF00" FontSize="20" Height="50"/>
-            <ComboBox  materialDesign:HintAssist.Hint="Region" materialDesign:ColorZoneAssist.Mode="Inverted" Padding="10" Height="50" Foreground="#FFBF00" FontSize="20">
-                <ComboBoxItem>
-                    1
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    2
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    3
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    4
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    5
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    6
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    7
-                </ComboBoxItem>
-            </ComboBox>
-        </StackPanel>
+        
+
+
     </Grid>
 </Page>

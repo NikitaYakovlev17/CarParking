@@ -5,6 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Car_Parking.View"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:viewmodel="clr-namespace:Car_Parking.ViewModel"
+      
+      xmlns:lex="http://wpflocalizeextension.codeplex.com"
+      lex:LocalizeDictionary.DesignCulture=""
+      lex:ResxLocalizationProvider.DefaultAssembly="Car_Parking"    
+      lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+      
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserAuto" Background="#FF353434">
@@ -27,12 +34,12 @@
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Номер авто :" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="Регион :" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="2" Grid.Column="0" Content="Серия :" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="3" Grid.Column="0" Content="Время аренды :" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="4" Grid.Column="0" Content="Номер телефона :" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="5" Grid.Column="0" Content="Коментарий :" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="{lex:Loc car_number}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="{lex:Loc car_region}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="{lex:Loc car_series}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="{lex:Loc lease_time}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="{lex:Loc phone_number}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="{lex:Loc comment}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
 
         <materialDesign:PackIcon Kind="CarBack" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <materialDesign:PackIcon Kind="City" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
@@ -42,7 +49,7 @@
         <materialDesign:PackIcon Kind="Comment" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" />
 
         <TextBox Grid.Row="0" Grid.Column="2" FontSize="20" Margin="5" x:Name="AutoNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="1234"/>
-        <ComboBox Grid.Row="1" Grid.Column="2" FontSize="20" Margin="5" materialDesign:HintAssist.Hint="Region" Foreground="#FFBF00" materialDesign:ColorZoneAssist.Mode="Inverted">
+        <ComboBox Grid.Row="1" Grid.Column="2" FontSize="20" Margin="5" materialDesign:HintAssist.Hint="{lex:Loc car_region}" Foreground="#FFBF00" materialDesign:ColorZoneAssist.Mode="Inverted">
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
             <ComboBoxItem>3</ComboBoxItem>
@@ -51,7 +58,7 @@
             <ComboBoxItem>6</ComboBoxItem>
             <ComboBoxItem>7</ComboBoxItem>
         </ComboBox>
-        <ComboBox Grid.Row="2" Grid.Column="2" FontSize="20" Margin="5" materialDesign:HintAssist.Hint="Series" Foreground="#FFBF00" materialDesign:ColorZoneAssist.Mode="Inverted">
+        <ComboBox Grid.Row="2" Grid.Column="2" FontSize="20" Margin="5" materialDesign:HintAssist.Hint="{lex:Loc car_series}" Foreground="#FFBF00" materialDesign:ColorZoneAssist.Mode="Inverted">
             <ComboBoxItem>AB</ComboBoxItem>
             <ComboBoxItem>BM</ComboBoxItem>
             <ComboBoxItem>EH</ComboBoxItem>
@@ -59,19 +66,32 @@
             <ComboBoxItem>OP</ComboBoxItem>
             <ComboBoxItem>TO</ComboBoxItem>
         </ComboBox>
-        <materialDesign:TimePicker Grid.Row="3" Grid.Column="2" FontSize="20" Margin="5" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" Is24Hours="True" materialDesign:HintAssist.Hint="Lease time" Foreground="#FFBF00" />
+        <materialDesign:TimePicker Grid.Row="3" Grid.Column="2" FontSize="20" Margin="5" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" Is24Hours="True" materialDesign:HintAssist.Hint="{lex:Loc lease_time}" Foreground="#FFBF00" VerticalAlignment="Center"/>
         <TextBox Grid.Row="4" Grid.Column="2" FontSize="20" Margin="5" x:Name="UserPhonNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="123-456-78"/>
         <TextBox Grid.Row="5" Grid.Column="2" Margin="5" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
             VerticalAlignment="Center"
             AcceptsReturn="True"
             TextWrapping="Wrap"
             MaxWidth="400"
-            FontSize="20"
+            FontSize="15"
             Foreground="#FFBF00"
-            materialDesign:HintAssist.Hint="Write a comment"
+            materialDesign:HintAssist.Hint="{lex:Loc comment_example}"
             IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}" />
-        
-        
-        
+
+        <Label Grid.Row="0" Grid.Column="3" Content="{lex:Loc rules_lable}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFBF00" FontSize="20"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Margin="10" Text="{lex:Loc rule_1}" TextWrapping="Wrap" FontSize="15" Foreground="#FFBF00" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="3" Margin="10" Text="{lex:Loc rule_2}" TextWrapping="Wrap" FontSize="15" Foreground="#FFBF00" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="3" Grid.Column="3" Margin="10" Text="{lex:Loc rule_3}" TextWrapping="Wrap" FontSize="15" Foreground="#FFBF00" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="4" Grid.Column="3" Margin="10" Text="{lex:Loc rule_4}" TextWrapping="Wrap" FontSize="15" Foreground="#FFBF00" VerticalAlignment="Center"/>
+
+        <Button Grid.Row="5" Grid.Column="3"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            Height="50"
+                Width="150"
+            materialDesign:ButtonAssist.CornerRadius="10"
+            ToolTip="MaterialDesignRaisedButton with Round Corners">
+            <TextBlock
+                Text="{lex:Loc accept_button_blank}" />
+        </Button>
     </Grid>
 </Page>

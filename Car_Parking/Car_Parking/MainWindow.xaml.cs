@@ -63,5 +63,10 @@ namespace Car_Parking
             }
 
         }
+
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

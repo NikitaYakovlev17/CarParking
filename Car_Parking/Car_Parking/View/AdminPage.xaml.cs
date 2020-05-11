@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Car_Parking.ViewModel
+namespace Car_Parking.View
 {
     /// <summary>
-    /// Логика взаимодействия для UserViewModel.xaml
+    /// Логика взаимодействия для AdminPage.xaml
     /// </summary>
-    public partial class UserViewModel : Page
+    public partial class AdminPage : Page
     {
-        public UserViewModel()
+        public AdminPage()
         {
             InitializeComponent();
         }
