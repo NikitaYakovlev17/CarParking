@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Car_Parking.View;
+using System.Configuration;
+using Car_Parking.DB;
+using Car_Parking.ViewModel;
 using System.IO;
 
 namespace Car_Parking
@@ -24,6 +27,30 @@ namespace Car_Parking
     {
         public MainWindow()
         {
+            var setting = new ConnectionStringSettings
+            {
+                Name = "ConnectionString",
+                ConnectionString = @"Server=tcp:carparkingserver.database.windows.net,1433;Initial Catalog=car_parking_db;Persist Security Info=False;User ID=nikita;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+            };
+            Configuration config;
+            config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.ConnectionStrings.ConnectionStrings.Add(setting);
+            config.Save();
+            //Properties.Settings.Default.User = "";
+            //Properties.Settings.Default.Save();
+            if (Properties.Settings.Default.User == "")
+            {
+
+                SqlConnect l = new SqlConnect();
+                l.ReadUsersRecords();
+                ViewLogin taskWindow = new ViewLogin();
+                taskWindow.Show();
+                this.Close();
+            }
+            MainViewModel vm = new MainViewModel();
+            this.DataContext = vm;
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(this.Close);
             InitializeComponent();
         }
 

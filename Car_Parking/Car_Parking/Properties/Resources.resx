@@ -120,6 +120,15 @@
   <data name="accept_button_blank" xml:space="preserve">
     <value>ПОДТВЕРДИТЬ</value>
   </data>
+  <data name="carNumberEmpty" xml:space="preserve">
+    <value>Такого номера авто не существует</value>
+  </data>
+  <data name="carRegionEmpty" xml:space="preserve">
+    <value>Такого региона не существует</value>
+  </data>
+  <data name="carSeriesEmpty" xml:space="preserve">
+    <value>Такой серии авто не существует</value>
+  </data>
   <data name="car_number" xml:space="preserve">
     <value>Номер авто :</value>
   </data>
@@ -129,20 +138,59 @@
   <data name="car_series" xml:space="preserve">
     <value>Серия :</value>
   </data>
+  <data name="charac" xml:space="preserve">
+    <value>Не менее 6 символов</value>
+  </data>
   <data name="comment" xml:space="preserve">
     <value>Коментарий :</value>
   </data>
   <data name="comment_example" xml:space="preserve">
     <value>Напишите коментарий</value>
   </data>
+  <data name="eaqfield" xml:space="preserve">
+    <value>Пароли не совпадают</value>
+  </data>
+  <data name="emptyfield" xml:space="preserve">
+    <value>Заполните поле пароля</value>
+  </data>
+  <data name="emptyfieldlogin" xml:space="preserve">
+    <value>Заполните поле имени</value>
+  </data>
+  <data name="Enter_name" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="existserr" xml:space="preserve">
+    <value>Такой пользователь уже существует</value>
+  </data>
+  <data name="leaseTimeEmpty" xml:space="preserve">
+    <value>Некорректное время</value>
+  </data>
   <data name="lease_time" xml:space="preserve">
     <value>Время аренды :</value>
+  </data>
+  <data name="login_name" xml:space="preserve">
+    <value>Логин</value>
   </data>
   <data name="mainwindow_language_button" xml:space="preserve">
     <value>РУС</value>
   </data>
+  <data name="nosuchuser" xml:space="preserve">
+    <value>такого пользователя не существует</value>
+  </data>
+  <data name="pass_name" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="phoneNumberEmpty" xml:space="preserve">
+    <value>Такого номера телефона не существует</value>
+  </data>
   <data name="phone_number" xml:space="preserve">
     <value>Номер телефона :</value>
+  </data>
+  <data name="reg_name" xml:space="preserve">
+    <value>Зарегестрироваться</value>
+  </data>
+  <data name="rep_pass_name" xml:space="preserve">
+    <value>Повторите пароль</value>
   </data>
   <data name="rules_lable" xml:space="preserve">
     <value>Правила пользования парковкой</value>

@@ -97,6 +97,42 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Такого номера авто не существует.
+        /// </summary>
+        internal static string carNumberEmpty {
+            get {
+                return ResourceManager.GetString("carNumberEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Такого региона не существует.
+        /// </summary>
+        internal static string carRegionEmpty {
+            get {
+                return ResourceManager.GetString("carRegionEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Такой серии авто не существует.
+        /// </summary>
+        internal static string carSeriesEmpty {
+            get {
+                return ResourceManager.GetString("carSeriesEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не менее 6 символов.
+        /// </summary>
+        internal static string charac {
+            get {
+                return ResourceManager.GetString("charac", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Коментарий :.
         /// </summary>
         internal static string comment {
@@ -115,11 +151,74 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароли не совпадают.
+        /// </summary>
+        internal static string eaqfield {
+            get {
+                return ResourceManager.GetString("eaqfield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполните поле пароля.
+        /// </summary>
+        internal static string emptyfield {
+            get {
+                return ResourceManager.GetString("emptyfield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполните поле имени.
+        /// </summary>
+        internal static string emptyfieldlogin {
+            get {
+                return ResourceManager.GetString("emptyfieldlogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Войти.
+        /// </summary>
+        internal static string Enter_name {
+            get {
+                return ResourceManager.GetString("Enter_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Такой пользователь уже существует.
+        /// </summary>
+        internal static string existserr {
+            get {
+                return ResourceManager.GetString("existserr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Время аренды :.
         /// </summary>
         internal static string lease_time {
             get {
                 return ResourceManager.GetString("lease_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Некорректное время.
+        /// </summary>
+        internal static string leaseTimeEmpty {
+            get {
+                return ResourceManager.GetString("leaseTimeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Логин.
+        /// </summary>
+        internal static string login_name {
+            get {
+                return ResourceManager.GetString("login_name", resourceCulture);
             }
         }
         
@@ -133,11 +232,56 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на такого пользователя не существует.
+        /// </summary>
+        internal static string nosuchuser {
+            get {
+                return ResourceManager.GetString("nosuchuser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль.
+        /// </summary>
+        internal static string pass_name {
+            get {
+                return ResourceManager.GetString("pass_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Номер телефона :.
         /// </summary>
         internal static string phone_number {
             get {
                 return ResourceManager.GetString("phone_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Такого номера телефона не существует.
+        /// </summary>
+        internal static string phoneNumberEmpty {
+            get {
+                return ResourceManager.GetString("phoneNumberEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Зарегестрироваться.
+        /// </summary>
+        internal static string reg_name {
+            get {
+                return ResourceManager.GetString("reg_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Повторите пароль.
+        /// </summary>
+        internal static string rep_pass_name {
+            get {
+                return ResourceManager.GetString("rep_pass_name", resourceCulture);
             }
         }
         

@@ -13,7 +13,7 @@
       lex:ResxLocalizationProvider.DefaultDictionary="Resources"        
       xmlns:viewmodel="clr-namespace:Car_Parking.ViewModel"
         
-        Title="ViewRegister" Height="500" Width="320" ResizeMode="NoResize">
+        Title="ViewRegister" Background="#FF353434" Height="500" Width="320" ResizeMode="NoResize">
     
     
     <Window.Resources>
@@ -26,17 +26,14 @@
         </Style>
     </Window.Resources>
     <Grid  >
-        <Grid Background="{DynamicResource MaterialDesignPaper}" >
+        <Grid Background="#FF353434" >
             <StackPanel Orientation="Vertical">
-                <materialDesign:PackIcon Margin="0 50 0 0" HorizontalAlignment="Center" Kind="AccountKeyOutline" Height="100" Width="100"/>
-                <TextBox Text="{Binding Login, ValidatesOnDataErrors=True}" Margin="0 50 0 0" materialDesign:HintAssist.Hint="{lex:Loc login_name}"  Height="30" Width="230" materialDesign:TransitionAssist.DisableTransitions="True" />
-                <PasswordBox x:Name="pwbox2" Margin="0 20 0 0" Height="30" Width="230"
-  materialDesign:HintAssist.Hint="{lex:Loc pass_name}"
-  materialDesign:TextFieldAssist.HasClearButton="True"
->
+                <materialDesign:PackIcon Margin="0 50 0 0" HorizontalAlignment="Center" Kind="AccountKeyOutline" Height="100" Width="100" Foreground="#FFBF00"/>
+                <TextBox Text="{Binding Login, ValidatesOnDataErrors=True}" Margin="0 50 0 0" materialDesign:HintAssist.Hint="{lex:Loc login_name}" Foreground="#FFBF00" Height="40" Width="230" materialDesign:TransitionAssist.DisableTransitions="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <PasswordBox x:Name="pwbox2" Margin="0 20 0 0" Foreground="#FFBF00" Height="40" Width="230" materialDesign:HintAssist.Hint="{lex:Loc pass_name}" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="PasswordChanged" >
-                            <i:InvokeCommandAction Command="{Binding PasswordChangedCommand2 }"  CommandParameter="{Binding ElementName=pwbox2,  Mode=OneWay}"/>
+                            <i:InvokeCommandAction Command="{Binding PasswordChangedCommand2}"  CommandParameter="{Binding ElementName=pwbox2,  Mode=OneWay}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </PasswordBox>

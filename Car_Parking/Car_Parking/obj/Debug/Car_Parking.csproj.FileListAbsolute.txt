@@ -80,3 +80,5 @@ D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\Car_Parking.Properties.Resources.en.resources
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\en\Car_Parking.resources.dll
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\AdminPage.g.cs
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\AdminPage.baml

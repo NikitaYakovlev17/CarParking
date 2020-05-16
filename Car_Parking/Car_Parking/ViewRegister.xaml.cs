@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Car_Parking.ViewModel;
 
 namespace Car_Parking
 {
@@ -22,6 +23,10 @@ namespace Car_Parking
         public ViewRegister()
         {
             InitializeComponent();
+            RegisterViewModel vm = new RegisterViewModel();
+            this.DataContext = vm;
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(this.Close);
         }
     }
 }
