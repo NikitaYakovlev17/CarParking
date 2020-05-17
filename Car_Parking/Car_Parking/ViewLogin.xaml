@@ -29,7 +29,7 @@
         <Grid Background="#FF353434" >
             <StackPanel Orientation="Vertical">
                 <materialDesign:PackIcon Margin="0 50 0 0" HorizontalAlignment="Center" Kind="AccountKeyOutline" Height="100" Width="100" Foreground="#FFBF00"/>
-                <TextBox Text="{Binding Login, ValidatesOnDataErrors=True}" Margin="0 50 0 0" materialDesign:HintAssist.Hint="{lex:Loc login_name}" Foreground="#FFBF00" Height="40" Width="230" materialDesign:TransitionAssist.DisableTransitions="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox Text="{Binding PhoneNumberLog, ValidatesOnDataErrors=True}" Margin="0 50 0 0" materialDesign:HintAssist.Hint="{lex:Loc login_name}" Foreground="#FFBF00" Height="40" Width="230" materialDesign:TransitionAssist.DisableTransitions="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <PasswordBox x:Name="pwbox2" Margin="0 20 0 0" Foreground="#FFBF00" Height="40" Width="230" materialDesign:HintAssist.Hint="{lex:Loc pass_name}" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="PasswordChanged" >

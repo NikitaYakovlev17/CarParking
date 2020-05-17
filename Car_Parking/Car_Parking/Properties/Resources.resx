@@ -166,10 +166,10 @@
     <value>Некорректное время</value>
   </data>
   <data name="lease_time" xml:space="preserve">
-    <value>Время аренды :</value>
+    <value>Время начала аренды :</value>
   </data>
   <data name="login_name" xml:space="preserve">
-    <value>Логин</value>
+    <value>Номер телефона</value>
   </data>
   <data name="mainwindow_language_button" xml:space="preserve">
     <value>РУС</value>

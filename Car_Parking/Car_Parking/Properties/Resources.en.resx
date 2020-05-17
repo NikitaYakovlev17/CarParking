@@ -136,7 +136,7 @@
     <value>Write a comment</value>
   </data>
   <data name="lease_time" xml:space="preserve">
-    <value>Lease time</value>
+    <value>Start lease time</value>
   </data>
   <data name="mainwindow_language_button" xml:space="preserve">
     <value>EN</value>

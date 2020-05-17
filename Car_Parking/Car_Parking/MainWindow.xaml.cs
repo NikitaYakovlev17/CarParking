@@ -32,12 +32,12 @@ namespace Car_Parking
                 Name = "ConnectionString",
                 ConnectionString = @"Server=tcp:carparkingserver.database.windows.net,1433;Initial Catalog=car_parking_db;Persist Security Info=False;User ID=nikita;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
             };
+
             Configuration config;
             config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.ConnectionStrings.ConnectionStrings.Add(setting);
             config.Save();
-            //Properties.Settings.Default.User = "";
-            //Properties.Settings.Default.Save();
+
             if (Properties.Settings.Default.User == "")
             {
 
@@ -47,6 +47,7 @@ namespace Car_Parking
                 taskWindow.Show();
                 this.Close();
             }
+
             MainViewModel vm = new MainViewModel();
             this.DataContext = vm;
             if (vm.CloseAction == null)

@@ -71,7 +71,7 @@
             <ComboBoxItem>OP</ComboBoxItem>
             <ComboBoxItem>TO</ComboBoxItem>
         </ComboBox>
-        <materialDesign:TimePicker Grid.Row="3" Grid.Column="2" Text="{Binding LeaseTime}" FontSize="20" Margin="5" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" Is24Hours="True" materialDesign:HintAssist.Hint="{lex:Loc lease_time}" Foreground="#FFBF00" VerticalAlignment="Center"/>
+        <materialDesign:TimePicker Grid.Row="3" Grid.Column="2" Text="{Binding LeaseTime, StringFormat=HH:mm}" FontSize="20" Margin="5" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" Is24Hours="True" materialDesign:HintAssist.Hint="{lex:Loc lease_time}" Foreground="#FFBF00" VerticalAlignment="Center"/>
         <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding PhoneNumber}" FontSize="20" Margin="5" x:Name="UserPhonNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="123-456-78"/>
         <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Comment}" Margin="5" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
             VerticalAlignment="Center"

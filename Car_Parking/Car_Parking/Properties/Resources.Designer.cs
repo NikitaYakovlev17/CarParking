@@ -196,7 +196,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Время аренды :.
+        ///   Ищет локализованную строку, похожую на Время начала аренды :.
         /// </summary>
         internal static string lease_time {
             get {
@@ -214,7 +214,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Логин.
+        ///   Ищет локализованную строку, похожую на Номер телефона.
         /// </summary>
         internal static string login_name {
             get {

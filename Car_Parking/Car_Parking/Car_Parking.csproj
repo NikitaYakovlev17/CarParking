@@ -130,6 +130,7 @@
     </ApplicationDefinition>
     <Compile Include="DB\SqlConnection.cs" />
     <Compile Include="DB\SqlConnectionCar.cs" />
+    <Compile Include="DB\SqlConnectionTime.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\Resources.en.Designer.cs">
       <DependentUpon>Resources.en.resx</DependentUpon>

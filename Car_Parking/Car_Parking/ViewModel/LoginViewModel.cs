@@ -10,19 +10,55 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
+
 
 namespace Car_Parking.ViewModel
 {
     class LoginViewModel : ViewModelBase , IDataErrorInfo
     {
-        private string login;
-        public string Login
+        private string phoneNumberLog;
+        public string PhoneNumberLog
         {
-            get { return login; }
+            get { return phoneNumberLog; }
             set
             {
-                this.login = value;
-                RaisePropertiesChanged(nameof(Login));
+                if (value == this.phoneNumberLog) return;
+                this.phoneNumberLog = value;
+                PhoneMask(); RaisePropertiesChanged(nameof(PhoneNumberLog));
+            }
+        }
+
+        public int PhoneLength { get; set; }
+
+        public async Task PhoneMask()
+        {
+            var newVal = Regex.Replace(PhoneNumberLog, @"[^0-9]", "");
+            if (PhoneLength != newVal.Length && !string.IsNullOrEmpty(newVal))
+            {
+                PhoneLength = newVal.Length;
+                PhoneNumberLog = string.Empty;
+
+                if (newVal.Length <= 3)
+                {
+                    PhoneNumberLog = Regex.Replace(newVal, @"(375)", "+$1");
+                }
+                else if (newVal.Length <= 5)
+                {
+                    PhoneNumberLog = Regex.Replace(newVal, @"(375)(\d{0,2})", "+$1($2)");
+                }
+                else if (newVal.Length <= 8)
+                {
+                    PhoneNumberLog = Regex.Replace(newVal, @"(375)(\d{2})(\d{0,3})", "+$1($2)$3");
+                }
+                else if (newVal.Length <= 10)
+                {
+                    PhoneNumberLog = Regex.Replace(newVal, @"(375)(\d{2})(\d{0,3})(\d{0,2})", "+$1($2)$3-$4");
+                }
+                else if (newVal.Length > 10)
+                {
+                    PhoneNumberLog = Regex.Replace(newVal, @"(375)(\d{2})(\d{0,3})(\d{0,2})(\d{0,2})", "+$1($2)$3-$4-$5");
+                }
             }
         }
 
@@ -60,24 +96,24 @@ namespace Car_Parking.ViewModel
             bool IsDone = true;
             flag = true;
             ErrorMes = "";
-            Login += " ";
-            int x1 = Login.Length - 1;
-            Login = Login.Substring(0, x1);
+            PhoneNumberLog += " ";
+            int x1 = PhoneNumberLog.Length - 1;
+            PhoneNumberLog = PhoneNumberLog.Substring(0, x1);
 
             if (PasswordSecond == String.Empty || PasswordSecond == null)
             {
                 flagToLogin = false;
                 ErrorMes = Properties.Resources.emptyfield;
             }
-            if (flagToLogin)
+            if (flagToLogin && canreg)
             {
                 SqlConnect spam = new SqlConnect();
                 string Pass = firstHash(PasswordSecond).ToString();
-                IsDone = spam.GiveUsersRecords(Login, Pass);
+                IsDone = spam.GiveUsersRecords(PhoneNumberLog, Pass);
                 if (IsDone)
                 {
-                    Properties.Settings.Default.User = Login;
-                    Properties.Settings.Default.UserId = spam.GetIdUserByName(Login);
+                    Properties.Settings.Default.User = PhoneNumberLog;
+                    Properties.Settings.Default.UserId = spam.GetIdUserByName(PhoneNumberLog);
                     Properties.Settings.Default.Save();
                     MainWindow sp = new MainWindow();
                     sp.Show();
@@ -89,6 +125,7 @@ namespace Car_Parking.ViewModel
                 ErrorMes = Properties.Resources.nosuchuser;
             }
             flag = false;
+            canreg = true;
 
 
         }
@@ -126,6 +163,7 @@ namespace Car_Parking.ViewModel
         }
 
         bool flag = false;
+        bool canreg = true;
 
         public string Error { get { return null; } }
 

@@ -39,7 +39,7 @@ namespace Car_Parking.DB
         }
 
 
-        public bool InsertUsersRecords(string name, string password)
+        public bool InsertUsersRecords(string phoneNumberLog, string password)
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -48,11 +48,11 @@ namespace Car_Parking.DB
                     connect.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
-                    command.CommandText = @"INSERT INTO Users VALUES (@UserName, @Password, 0)";
-                    command.Parameters.Add("@UserName", SqlDbType.NVarChar, 50);
+                    command.CommandText = @"INSERT INTO Users VALUES (@PhoneNumberLog, @Password, 0)";
+                    command.Parameters.Add("@PhoneNumberLog", SqlDbType.NVarChar, 50);
                     command.Parameters.Add("@Password", SqlDbType.NVarChar, 50);
 
-                    command.Parameters["@UserName"].Value = name;
+                    command.Parameters["@PhoneNumberLog"].Value = phoneNumberLog;
                     command.Parameters["@Password"].Value = password;
                     command.ExecuteNonQuery();
                     return true;
@@ -66,7 +66,7 @@ namespace Car_Parking.DB
         }
 
 
-        public bool GiveUsersRecords(string name, string password)
+        public bool GiveUsersRecords(string phoneNumberLog, string password)
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -75,11 +75,11 @@ namespace Car_Parking.DB
                     connect.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
-                    command.CommandText = @"Select count(*) From Users Where UserName = @UserName and Password = @Password";
-                    command.Parameters.Add("@UserName", SqlDbType.NVarChar, 50);
+                    command.CommandText = @"Select count(*) From Users Where PhoneNumberLog = @PhoneNumberLog and Password = @Password";
+                    command.Parameters.Add("@PhoneNumberLog", SqlDbType.NVarChar, 50);
                     command.Parameters.Add("@Password", SqlDbType.NVarChar, 50);
 
-                    command.Parameters["@UserName"].Value = name;
+                    command.Parameters["@PhoneNumberLog"].Value = phoneNumberLog;
                     command.Parameters["@Password"].Value = password;
                     object count = command.ExecuteScalar();
                     if (Convert.ToInt32(count) > 0)
@@ -96,7 +96,7 @@ namespace Car_Parking.DB
 
         }
 
-        public string GetIdUserByName(string name)
+        public string GetIdUserByName(string phoneNumberLog)
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -105,10 +105,10 @@ namespace Car_Parking.DB
                     connect.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
-                    command.CommandText = @"Select UserId From Users Where UserName = @UserName";
-                    command.Parameters.Add("@UserName", SqlDbType.NVarChar, 50);
+                    command.CommandText = @"Select UserId From Users Where PhoneNumberLog = @PhoneNumberLog";
+                    command.Parameters.Add("@PhoneNumberLog", SqlDbType.NVarChar, 50);
 
-                    command.Parameters["@UserName"].Value = name;
+                    command.Parameters["@PhoneNumberLog"].Value = phoneNumberLog;
                     SqlDataReader info = command.ExecuteReader();
                     object id = -1;
                     while (info.Read())

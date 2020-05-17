@@ -38,7 +38,7 @@ namespace Car_Parking.DB
 
         }
 
-        public bool InsertUserCarRecords(int carNumber, int carRegion, string carSeries, DateTime leaseTime, int phoneNumber, string comment)
+        public bool InsertUserCarRecords(string carNumber, int carRegion, string carSeries, DateTime leaseTime, string phoneNumber, string comment)
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -49,11 +49,11 @@ namespace Car_Parking.DB
                     command.Connection = connect;
                     command.CommandText = @"INSERT INTO UserCar VALUES (@IdUser, @CarNumber, @CarRegion, @CarSeries, @LeaseTime, @PhoneNumber, @Comment)";
                     command.Parameters.Add("@IdUser", SqlDbType.Int);
-                    command.Parameters.Add("@CarNumber", SqlDbType.Int, 4);
+                    command.Parameters.Add("@CarNumber", SqlDbType.NVarChar, 4);
                     command.Parameters.Add("@CarRegion", SqlDbType.Int, 2);
                     command.Parameters.Add("@CarSeries", SqlDbType.NVarChar, 2);
                     command.Parameters.Add("@LeaseTime", SqlDbType.DateTime);
-                    command.Parameters.Add("@PhoneNumber", SqlDbType.Int, 7);
+                    command.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 17);
                     command.Parameters.Add("@Comment", SqlDbType.NVarChar, 100);
 
                     command.Parameters["@IdUser"].Value = Convert.ToInt32(Properties.Settings.Default.UserId);
@@ -69,6 +69,36 @@ namespace Car_Parking.DB
                 catch (Exception e)
                 {
                     return false;
+                }
+            }
+
+        }
+
+        public string GetIdUserByName(string phoneNumberLog)
+        {
+            using (SqlConnection connect = new SqlConnection(sqlString))
+            {
+                try
+                {
+                    connect.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connect;
+                    command.CommandText = @"Select UserId From Users Where PhoneNumberLog = @PhoneNumberLog";
+                    command.Parameters.Add("@UserName", SqlDbType.NVarChar, 50);
+
+                    command.Parameters["@PhoneNumberLog"].Value = phoneNumberLog;
+                    SqlDataReader info = command.ExecuteReader();
+                    object id = -1;
+                    while (info.Read())
+                    {
+                        id = info["UserId"];
+                        break;
+                    }
+                    return Convert.ToString(id);
+                }
+                catch (Exception e)
+                {
+                    return "";
                 }
             }
 

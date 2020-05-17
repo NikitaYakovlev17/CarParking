@@ -13,10 +13,12 @@ namespace Car_Parking.ViewModel
     class MainViewModel : ViewModelBase
     {
         public Action CloseAction { get; set; }
+
         public ICommand logout => new DelegateCommand(LogoutCommand);
         public void LogoutCommand()
         {
             Properties.Settings.Default.User = "";
+            Properties.Settings.Default.UserId = "";
             Properties.Settings.Default.Save();
 
             ViewLogin q = new ViewLogin();

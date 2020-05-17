@@ -9,13 +9,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
 
 namespace Car_Parking.ViewModel
 {
     class UserAutoViewModel : ViewModelBase, IDataErrorInfo
     {
-        private int carnumber;
-        public int CarNumber
+        private string carnumber;
+        public string CarNumber
         {
             get { return carnumber; }
             set
@@ -47,7 +48,7 @@ namespace Car_Parking.ViewModel
             }
         }
 
-        private DateTime leasetime;
+        private DateTime leasetime = DateTime.Now;
         public DateTime LeaseTime
         {
             get { return leasetime; }
@@ -56,15 +57,40 @@ namespace Car_Parking.ViewModel
                 this.leasetime = value;
                 RaisePropertiesChanged(nameof(LeaseTime));
             }
+        }        
+
+        private DateTime timeOut = DateTime.Now;
+        public DateTime TimeOut
+        {
+            get { return timeOut; }
+            set
+            {
+                this.timeOut = value;
+                RaisePropertiesChanged(nameof(TimeOut));
+            }
         }
 
-        private int phonenumber;
-        public int PhoneNumber
+        private int payAmount;
+        public int PayAmount
+        {
+            get { return payAmount; }
+            set
+            {
+                this.payAmount = value;
+                RaisePropertiesChanged(nameof(PayAmount));
+            }
+        }
+
+
+        private string phonenumber;
+        public string PhoneNumber
         {
             get { return phonenumber; }
             set
             {
+                if (value == this.phonenumber) return;
                 this.phonenumber = value;
+                PhoneMask();
                 RaisePropertiesChanged(nameof(PhoneNumber));
             }
         }
@@ -81,6 +107,41 @@ namespace Car_Parking.ViewModel
         }
 
 
+        public int PhoneLength { get; set; }
+
+        public async Task PhoneMask()
+        {
+            var newVal = Regex.Replace(PhoneNumber, @"[^0-9]", "");
+            if (PhoneLength != newVal.Length && !string.IsNullOrEmpty(newVal))
+            {
+                PhoneLength = newVal.Length;
+                PhoneNumber = string.Empty;
+
+                if (newVal.Length <= 3)
+                {
+                    PhoneNumber = Regex.Replace(newVal, @"(375)", "+$1");
+                }
+                else if (newVal.Length <= 5)
+                {
+                    PhoneNumber = Regex.Replace(newVal, @"(375)(\d{0,2})", "+$1($2)");
+                }
+                else if (newVal.Length <= 8)
+                {
+                    PhoneNumber = Regex.Replace(newVal, @"(375)(\d{2})(\d{0,3})", "+$1($2)$3");
+                }
+                else if (newVal.Length <= 10)
+                {
+                    PhoneNumber = Regex.Replace(newVal, @"(375)(\d{2})(\d{0,3})(\d{0,2})", "+$1($2)$3-$4");
+                }
+                else if (newVal.Length > 10)
+                {
+                    PhoneNumber = Regex.Replace(newVal, @"(375)(\d{2})(\d{0,3})(\d{0,2})(\d{0,2})", "+$1($2)$3-$4-$5");
+                }
+            }
+        }
+                
+
+
         public ICommand accept => new DelegateCommand(AcceptCommand);
         public void AcceptCommand()
         {
@@ -88,7 +149,7 @@ namespace Car_Parking.ViewModel
             bool IsDone = true;
             flag = true;
             ErrorMes = "";
-            if(CarNumber < 1000 || CarNumber > 9999)
+            if(CarNumber.Length != 4)
             {
                 flagToAccept = false;
                 ErrorMes = Properties.Resources.carNumberEmpty;
@@ -108,7 +169,7 @@ namespace Car_Parking.ViewModel
                 flagToAccept = false;
                 ErrorMes = Properties.Resources.leaseTimeEmpty;
             }
-            if(PhoneNumber < 10000000 || PhoneNumber > 99999999)
+            if(PhoneNumber.Length != 17)
             {
                 flagToAccept = false;
                 ErrorMes = Properties.Resources.phoneNumberEmpty;
@@ -117,9 +178,12 @@ namespace Car_Parking.ViewModel
             {
                 SqlConnectionCar spam = new SqlConnectionCar();
                 spam.InsertUserCarRecords(CarNumber, CarRegion, CarSeries, LeaseTime, PhoneNumber, Comment);
+                SqlConnectionTime spamTime = new SqlConnectionTime();
+                spamTime.InsertLeaseTimeRecords(LeaseTime, TimeOut, PayAmount);                
             }
         }
 
+        
 
         #region Validation
         bool flag = false;
