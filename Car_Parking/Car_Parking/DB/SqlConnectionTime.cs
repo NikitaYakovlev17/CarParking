@@ -14,7 +14,7 @@ namespace Car_Parking.DB
 {
     class SqlConnectionTime
     {
-        private string sqlString = "Server=tcp:carparkingserver.database.windows.net,1433;Initial Catalog=car_parking_db;Persist Security Info=False;User ID=nikita;Password=375333587914Pmc;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private string sqlString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         public SqlDataReader ReadUsersRecords()
         {

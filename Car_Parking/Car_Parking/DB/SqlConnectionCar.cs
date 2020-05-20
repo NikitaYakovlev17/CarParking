@@ -9,17 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Car_Parking.Model;
 
 namespace Car_Parking.DB
 {
     class SqlConnectionCar
     {
-        private string sqlString = "Server=tcp:carparkingserver.database.windows.net,1433;Initial Catalog=car_parking_db;Persist Security Info=False;User ID=nikita;Password=375333587914Pmc;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private string sqlString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-        public SqlDataReader ReadUsersRecords()
+        public ObservableCollection<Car> ReadUsersRecords()
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
+                ObservableCollection<Car> spam = new ObservableCollection<Car>();
+
                 try
                 {
                     connect.Open();
@@ -27,12 +30,27 @@ namespace Car_Parking.DB
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
                     command.CommandText = commandstr;
-                    SqlDataReader info = command.ExecuteReader();
-                    return info;
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            string car_number = reader["CarNumber"].ToString();
+                            int car_region = Convert.ToInt32(reader["CarRegion"]);
+                            string car_series = reader["CarSeries"].ToString();
+                            DateTime lease_time = Convert.ToDateTime(reader["LeaseTime"]);
+                            string phone_number = reader["PhoneNumber"].ToString();
+                            string comment = reader["Comment"].ToString();
+
+                            spam.Add(new Car() { CarNumber = car_number, CarRegion = car_region, CarSeries = car_series, LeaseTime = lease_time, TimeOut = DateTime.Now, PhoneNumber = phone_number, Comment = comment });
+                        }
+                    }
+                    return spam;
                 }
                 catch (Exception e)
                 {
-                    return null;
+                    return spam;
                 }
             }
 
@@ -83,7 +101,7 @@ namespace Car_Parking.DB
                     connect.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
-                    command.CommandText = @"Select UserId From Users Where PhoneNumberLog = @PhoneNumberLog";
+                    command.CommandText = @"Select UserId From UserCar Where PhoneNumberLog = @PhoneNumberLog";
                     command.Parameters.Add("@UserName", SqlDbType.NVarChar, 50);
 
                     command.Parameters["@PhoneNumberLog"].Value = phoneNumberLog;
@@ -99,6 +117,82 @@ namespace Car_Parking.DB
                 catch (Exception e)
                 {
                     return "";
+                }
+            }
+
+        }
+
+        public ObservableCollection<Car> GiveUsersRecords(string carNumber, int carRegion, string carSeries)
+        {
+            using (SqlConnection connect = new SqlConnection(sqlString))
+            {
+                ObservableCollection<Car> spam = new ObservableCollection<Car>();
+
+                try
+                {
+                    connect.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connect;
+                    command.CommandText = @"Select * From UserCar Where CarNumber = @CarNumber and CarRegion = @CarRegion and Carseries = @CarSeries";
+                    command.Parameters.Add("@CarNumber", SqlDbType.NVarChar, 4);
+                    command.Parameters.Add("@CarRegion", SqlDbType.Int, 1);
+                    command.Parameters.Add("@CarSeries", SqlDbType.NVarChar, 2);
+
+                    command.Parameters["@CarNumber"].Value = carNumber;
+                    command.Parameters["@CarRegion"].Value = carRegion;
+                    command.Parameters["@CarSeries"].Value = carSeries;
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            string car_number = reader["CarNumber"].ToString();
+                            int car_region = Convert.ToInt32(reader["CarRegion"]);
+                            string car_series = reader["CarSeries"].ToString();
+                            DateTime lease_time = Convert.ToDateTime(reader["LeaseTime"]);
+                            string phone_number = reader["PhoneNumber"].ToString();
+                            string comment = reader["Comment"].ToString();
+
+                            spam.Add(new Car() { CarNumber = car_number, CarRegion = car_region, CarSeries = car_series, LeaseTime = lease_time, TimeOut = DateTime.Now, PhoneNumber = phone_number, Comment = comment });
+                        }
+                    }
+                    return spam;
+
+
+                }
+                catch (Exception e)
+                {
+                    return spam;
+                }
+            }
+
+        }
+
+
+        public bool DeleteCar(string carNumber, int carRegion, string carSeries)
+        {
+            using (SqlConnection connect = new SqlConnection(sqlString))
+            {
+                try
+                {
+                    connect.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connect;
+                    command.CommandText = @"Delete From UserCar Where CarNumber = @CarNumber and CarRegion = @CarRegion and Carseries = @CarSeries";
+                    command.Parameters.Add("@CarNumber", SqlDbType.NVarChar, 4);
+                    command.Parameters.Add("@CarRegion", SqlDbType.Int, 1);
+                    command.Parameters.Add("@CarSeries", SqlDbType.NVarChar, 2);
+
+                    command.Parameters["@CarNumber"].Value = carNumber;
+                    command.Parameters["@CarRegion"].Value = carRegion;
+                    command.Parameters["@CarSeries"].Value = carSeries;
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
                 }
             }
 

@@ -121,13 +121,13 @@
     <value>ПОДТВЕРДИТЬ</value>
   </data>
   <data name="carNumberEmpty" xml:space="preserve">
-    <value>Такого номера авто не существует</value>
+    <value>Некорректный номер авто</value>
   </data>
   <data name="carRegionEmpty" xml:space="preserve">
-    <value>Такого региона не существует</value>
+    <value>Некорректный регион</value>
   </data>
   <data name="carSeriesEmpty" xml:space="preserve">
-    <value>Такой серии авто не существует</value>
+    <value>Некорректная серия авто</value>
   </data>
   <data name="car_number" xml:space="preserve">
     <value>Номер авто :</value>

@@ -13,7 +13,8 @@
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1080" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" >
+        Title="CarParking" Height="600" Width="1080" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" 
+        Icon="D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\icon.ico">
 
     <Window.DataContext>
         <viewmodel:MainViewModel/>
@@ -76,7 +77,7 @@
                 </StackPanel>
             </materialDesign:PopupBox>
             <TextBlock Text="{Binding UserName}" HorizontalAlignment="Right" VerticalAlignment="Center"  FontSize="25" Margin="0 0 0 5" Foreground="#FF353434"/>
-
+            <TextBlock Text="CAR PARKING" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="300 0 0 0" Foreground="#FF353434"/>
         </StackPanel>
 
 
@@ -105,18 +106,16 @@
                         <TextBlock Text="UserAuto" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="50">
-
+                <ListViewItem x:Name="AdminPage" Height="50">
                     <StackPanel Orientation="Horizontal" >
-                        <materialDesign:PackIcon Kind="About"   Width="35" Height="35" Foreground="#FFBF00"/>
-                        <TextBlock Text="*" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
+                        <materialDesign:PackIcon Kind="AutomaticGateUpOutline" Width="35" Height="35" Foreground="#FFBF00"/>
+                        <TextBlock Text="AdminPage" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
                     </StackPanel>
-
                 </ListViewItem>
 
                 <ListViewItem Margin="0 40 0 0">
                     <StackPanel Orientation="Horizontal">
-                        <ToggleButton Width="35" Height="35" Foreground="#FFBF00" Style="{StaticResource MaterialDesignSwitchToggleButton}" Command="{Binding Language}" ToolTip="Default ToggleButton Style" Checked="ToggleButton_Checked" />
+                        <ToggleButton Width="35" Height="35" Foreground="#FFBF00" Style="{StaticResource MaterialDesignSwitchToggleButton}" Command="{Binding Language}" ToolTip="Default ToggleButton Style"  />
                         <TextBlock Text="{lex:Loc mainwindow_language_button}" FontSize="20" Foreground="#FFBF00" />
                     </StackPanel>
                 </ListViewItem>
@@ -124,12 +123,11 @@
 
                 <ListViewItem >
                     <StackPanel Orientation="Horizontal">
-                        <ToggleButton Width="35" Height="35" Foreground="#FFBF00" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="Default ToggleButton Style" Checked="ToggleButton_Checked" />
+                        <ToggleButton Width="35" Height="35" Foreground="#FFBF00" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="Default ToggleButton Style"  />
                         <TextBlock Text="Color" FontSize="20" Foreground="#FFBF00" />
                     </StackPanel>
                 </ListViewItem>
             </ListView>
-
             
         </StackPanel>
     </Grid>

@@ -14,7 +14,7 @@ namespace Car_Parking.DB
 {
     class SqlConnect
     {
-        private string sqlString = "Server=tcp:carparkingserver.database.windows.net,1433;Initial Catalog=car_parking_db;Persist Security Info=False;User ID=nikita;Password=375333587914Pmc;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private string sqlString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         public SqlDataReader ReadUsersRecords()
         {
@@ -126,33 +126,8 @@ namespace Car_Parking.DB
 
         }
 
-        //public bool InsertCategory(string name)
-        //{
-        //    using (SqlConnection connect = new SqlConnection(sqlString))
-        //    {
-        //        try
-        //        {
-        //            connect.Open();
-        //            SqlCommand command = new SqlCommand();
-        //            command.Connection = connect;
-        //            command.CommandText = @"INSERT INTO TaskTypes VALUES (@IdUser, @TaskTypeName)";
-        //            command.Parameters.Add("@IdUser", SqlDbType.Int);
-        //            command.Parameters.Add("@TaskTypeName", SqlDbType.NVarChar, 50);
 
-        //            command.Parameters["@IdUser"].Value = Convert.ToInt32(Properties.Settings.Default.UserId);
-        //            command.Parameters["@TaskTypeName"].Value = name;
-        //            command.ExecuteNonQuery();
-        //            return true;
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            return false;
-        //        }
-        //    }
-
-        //}
-
-        public bool DeleteCategory(string name)
+        public bool DeleteCar(string name)
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -174,38 +149,6 @@ namespace Car_Parking.DB
                 }
             }
 
-        }
-
-        //public ObservableCollection<Class1> TakeCategoryById(int Id)
-        //{
-        //    using (SqlConnection connect = new SqlConnection(sqlString))
-        //    {
-        //        ObservableCollection<Class1> spam = new ObservableCollection<Class1>();
-        //        try
-        //        {
-        //            connect.Open();
-        //            SqlCommand command = new SqlCommand();
-        //            command.Connection = connect;
-        //            command.CommandText = @"Select TaskTypeName From TaskTypes Where IdUser = @IdUser";
-        //            command.Parameters.Add("@IdUser", SqlDbType.Int);
-
-        //            command.Parameters["@IdUser"].Value = Id;
-        //            SqlDataReader info = command.ExecuteReader();
-
-        //            string name;
-        //            while (info.Read())
-        //            {
-        //                name = info["TaskTypeName"].ToString();
-        //                spam.Add(new Class1() { Name = name });
-        //            }
-        //            return spam;
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            return spam;
-        //        }
-        //    }
-
-        //}
+        }        
     }
 }

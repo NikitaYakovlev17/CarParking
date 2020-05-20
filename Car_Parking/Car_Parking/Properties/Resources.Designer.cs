@@ -97,7 +97,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Такого номера авто не существует.
+        ///   Ищет локализованную строку, похожую на Некорректный номер авто.
         /// </summary>
         internal static string carNumberEmpty {
             get {
@@ -106,7 +106,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Такого региона не существует.
+        ///   Ищет локализованную строку, похожую на Некорректный регион.
         /// </summary>
         internal static string carRegionEmpty {
             get {
@@ -115,7 +115,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Такой серии авто не существует.
+        ///   Ищет локализованную строку, похожую на Некорректная серия авто.
         /// </summary>
         internal static string carSeriesEmpty {
             get {

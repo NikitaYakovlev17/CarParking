@@ -14,9 +14,92 @@
       
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="UserAuto" Background="#FF353434">
+      Title="AdminPage" Background="#FF353434">
+
+    <Page.DataContext>
+        <viewmodel:AdminPageViewModel />
+    </Page.DataContext>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.3*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Заполните поля :" VerticalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="CarBack" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding CarNumber}" FontSize="20" MaxLength="4" Width="100" Margin="5" x:Name="AutoNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="1234"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="City" VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="1" Grid.Column="2" Text="{Binding CarRegion}" FontSize="20" Margin="5" materialDesign:HintAssist.Hint="{lex:Loc car_region}" Foreground="#FFBF00" materialDesign:ColorZoneAssist.Mode="Inverted">
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>7</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="CardBulleted" VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="2" Grid.Column="2" Text="{Binding CarSeries}" FontSize="20" Margin="5" materialDesign:HintAssist.Hint="{lex:Loc car_series}" Foreground="#FFBF00" materialDesign:ColorZoneAssist.Mode="Inverted">
+                <ComboBoxItem>AB</ComboBoxItem>
+                <ComboBoxItem>BM</ComboBoxItem>
+                <ComboBoxItem>EH</ComboBoxItem>
+                <ComboBoxItem>CI</ComboBoxItem>
+                <ComboBoxItem>OP</ComboBoxItem>
+                <ComboBoxItem>TO</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
         
+        <Button Grid.Row="0" Grid.Column="4"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            Height="50"
+            Width="150"
+            Command="{Binding accept_admin}"
+            materialDesign:ButtonAssist.CornerRadius="10"
+            ToolTip="MaterialDesignRaisedButton with Round Corners">
+            <TextBlock
+                Text="{lex:Loc accept_button_blank}" />
+        </Button>
+        <TextBlock Grid.Row="0" Grid.Column="4" Text="{Binding ErrorMes}" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="red" Style="{StaticResource MaterialDesignBody2TextBlock}" />
+
+
+        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding CarsCollection}" CanUserAddRows="False" Margin="15,15.4,14.533,15.4" Foreground="#FFBF00" Background="#FF353434" GridLinesVisibility="All">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Foreground" Value="#FFBF00" />
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+
+        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Время проведенное на стоянке :" VerticalAlignment="Center"  FontSize="20" Margin="10" Foreground="#FFBF00"/>
+                <TextBlock Text="{Binding TimeOut, StringFormat=d\\dh\\hm\\m}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00" />
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Сумма к оплате :" VerticalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+                <TextBlock Text="{Binding PayAmount}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00" />
+            </StackPanel>
+        </StackPanel>
+
+        <Button Grid.Column="4" Grid.Row="2" Command="{Binding delete_car_admin}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" IsEnabled="{Binding IsEnableDone,FallbackValue=False}" Height="70" Width="70" ToolTip="MaterialDesignFloatingActionMiniLightButton">
+            <materialDesign:PackIcon Kind="Done" Height="50" Width="50" />
+        </Button>
+
     </Grid>
 </Page>

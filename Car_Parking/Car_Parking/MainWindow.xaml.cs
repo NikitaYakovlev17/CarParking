@@ -30,7 +30,7 @@ namespace Car_Parking
             var setting = new ConnectionStringSettings
             {
                 Name = "ConnectionString",
-                ConnectionString = @"Server=tcp:carparkingserver.database.windows.net,1433;Initial Catalog=car_parking_db;Persist Security Info=False;User ID=nikita;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+                ConnectionString = @"Server=tcp:carparkingserver.database.windows.net,1433;Initial Catalog=car_parking_db;Persist Security Info=False;User ID=nikita;Password=375333587914Pmc;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
             };
 
             Configuration config;
@@ -40,7 +40,6 @@ namespace Car_Parking
 
             if (Properties.Settings.Default.User == "")
             {
-
                 SqlConnect l = new SqlConnect();
                 l.ReadUsersRecords();
                 ViewLogin taskWindow = new ViewLogin();
@@ -86,14 +85,12 @@ namespace Car_Parking
                 case "UserAuto":
                     Main.Navigate(new UserAuto());
                     break;
+                case "AdminPage":
+                    Main.Navigate(new AdminPage());
+                    break;
                 default:
                     break;
             }
-
-        }
-
-        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
-        {
 
         }
     }

@@ -131,7 +131,7 @@
     <Compile Include="DB\SqlConnection.cs" />
     <Compile Include="DB\SqlConnectionCar.cs" />
     <Compile Include="DB\SqlConnectionTime.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Car.cs" />
     <Compile Include="Properties\Resources.en.Designer.cs">
       <DependentUpon>Resources.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -140,6 +140,7 @@
     <Compile Include="ViewLogin.xaml.cs">
       <DependentUpon>ViewLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AdminPageViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
