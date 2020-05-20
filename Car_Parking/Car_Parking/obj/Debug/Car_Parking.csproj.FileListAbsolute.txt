@@ -82,3 +82,9 @@ D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\AdminPage.g.cs
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\AdminPage.baml
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\LiveCharts.dll
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\LiveCharts.Wpf.dll
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\LiveCharts.pdb
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\LiveCharts.xml
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\LiveCharts.Wpf.pdb
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\LiveCharts.Wpf.xml

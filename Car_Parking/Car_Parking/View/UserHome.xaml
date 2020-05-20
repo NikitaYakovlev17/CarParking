@@ -6,10 +6,15 @@
       xmlns:local="clr-namespace:Car_Parking.View"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:viewmodel="clr-namespace:Car_Parking.ViewModel"
+      xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserHome" Background="#FF353434">
 
+    <Page.DataContext>
+        <viewmodel:UserHomeViewModel />
+    </Page.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"></ColumnDefinition>
@@ -21,8 +26,17 @@
             <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Время до окончания аренды :" FontSize="20" Foreground="#FFBF00" VerticalAlignment="Center" TextWrapping="Wrap"/>
-        <Label Grid.Row="0" Grid.Column="1" Name="lblTime" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFBF00"/>
 
+        <Wpf:Gauge x:Name="Field1" Margin="10"  Grid.Row="0" Grid.Column="0"
+                   From="0" To="50" Value="{Binding ValueIOT}"
+                   LabelsVisibility="Visible" Foreground="#FFBF00">
+            <Wpf:Gauge.GaugeActiveFill>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FFBF00" Offset="0.0" />
+                    <GradientStop Color="#FFBF00" Offset="0.5" />
+                    <GradientStop Color="#FFBF00" Offset="1.0" />
+                </LinearGradientBrush>
+            </Wpf:Gauge.GaugeActiveFill>
+        </Wpf:Gauge>
     </Grid>
 </Page>
