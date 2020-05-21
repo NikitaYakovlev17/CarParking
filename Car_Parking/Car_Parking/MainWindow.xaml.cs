@@ -88,6 +88,9 @@ namespace Car_Parking
                 case "AdminPage":
                     Main.Navigate(new AdminPage());
                     break;
+                case "AdminCarsHistory":
+                    Main.Navigate(new AdminCarsHistoryPage());
+                    break;
                 default:
                     break;
             }

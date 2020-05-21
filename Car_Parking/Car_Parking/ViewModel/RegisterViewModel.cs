@@ -30,7 +30,7 @@ namespace Car_Parking.ViewModel
 
         public int PhoneLength { get; set; }
 
-        public async Task PhoneMask()
+        public void PhoneMask()
         {
             var newVal = Regex.Replace(PhoneNumberLog, @"[^0-9]", "");
             if (PhoneLength != newVal.Length && !string.IsNullOrEmpty(newVal))
@@ -58,6 +58,7 @@ namespace Car_Parking.ViewModel
                 {
                     PhoneNumberLog = Regex.Replace(newVal, @"(375)(\d{2})(\d{0,3})(\d{0,2})(\d{0,2})", "+$1($2)$3-$4-$5");
                 }
+                PhoneLength = 0;
             }
         }
 
@@ -124,9 +125,6 @@ namespace Car_Parking.ViewModel
         {
             ErrorMes = "";
             flag = true;
-            PhoneNumberLog += " ";
-            int x1 = PhoneNumberLog.Length - 1;
-            PhoneNumberLog = PhoneNumberLog.Substring(0, x1);
             bool flagToRegistata = true;
             if(PhoneNumberLog == null || PhoneNumberLog == String.Empty || PhoneNumberLog.Length != 17)
             {

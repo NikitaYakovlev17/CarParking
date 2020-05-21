@@ -54,6 +54,39 @@ namespace Car_Parking.ViewModel
             }
         }
 
+        private DateTime leaseTime;
+        public DateTime LeaseTime
+        {
+            get { return leaseTime; }
+            set
+            {
+                this.leaseTime = value;
+                RaisePropertiesChanged(nameof(leaseTime));
+            }
+        }
+
+        private string phoneNumber;
+        public string PhoneNumber
+        {
+            get { return phoneNumber; }
+            set
+            {
+                this.phoneNumber = value;
+                RaisePropertiesChanged(nameof(PhoneNumber));
+            }
+        }
+
+        private string comment;
+        public string Comment
+        {
+            get { return comment; }
+            set
+            {
+                this.comment = value;
+                RaisePropertiesChanged(nameof(Comment));
+            }
+        }
+
         private string payAmount;
         public string PayAmount
         {
@@ -76,14 +109,25 @@ namespace Car_Parking.ViewModel
             }
         }
 
-        private TimeSpan timeOut;
-        public TimeSpan TimeOut
+        private DateTime timeOut = DateTime.Now;
+        public DateTime TimeOut
         {
             get { return timeOut; }
             set
             {
                 this.timeOut = value;
                 RaisePropertiesChanged(nameof(TimeOut));
+            }
+        }
+
+        private TimeSpan timeOn;
+        public TimeSpan TimeOn
+        {
+            get { return timeOn; }
+            set
+            {
+                this.timeOn = value;
+                RaisePropertiesChanged(nameof(TimeOn));
             }
         }
 
@@ -96,10 +140,10 @@ namespace Car_Parking.ViewModel
             {
                 leaseTime2 = time;
                 DateTime now = DateTime.Now;
-                TimeOut = now.Subtract(leaseTime2);
+                TimeOn = now.Subtract(leaseTime2);
             }
 
-            return TimeOut;
+            return TimeOn;
         }
 
         public ICommand accept_admin => new DelegateCommand(AcceptCommand);
@@ -135,9 +179,9 @@ namespace Car_Parking.ViewModel
             if (flagToAccept)
             {
                 SqlConnectionCar spam = new SqlConnectionCar();
-                CarsCollection = GetProducts();
                 PayAmount = payAmount_func();
-                TimeOut = GetTimeOut();
+                CarsCollection = GetProducts();                
+                TimeOn = GetTimeOut();
                 IsEnableDone = true;                
             }
         }
@@ -203,14 +247,31 @@ namespace Car_Parking.ViewModel
             return CarsCollection;
         }
 
-
+        
         public ICommand delete_car_admin => new DelegateCommand(DeleteComand);
 
         public void DeleteComand()
         {
+            var leaseTime = (from item in CarsCollection select item.LeaseTime);
+            foreach (var time in leaseTime)
+                LeaseTime = time;
+            var phoneNumber = (from item in CarsCollection select item.PhoneNumber);
+            foreach (var number in phoneNumber)
+                PhoneNumber = number;
+            var comment = (from item in CarsCollection select item.Comment);
+            foreach (var com in comment)
+                Comment = com;
+            PayAmount = payAmount_func();
+            SqlConnectionCarsHistory history = new SqlConnectionCarsHistory();
+            history.InsertUserCarRecords(CarNumber, CarRegion, CarSeries, LeaseTime, PhoneNumber, Comment, TimeOut, PayAmount);
             SqlConnectionCar spam = new SqlConnectionCar();
             spam.DeleteCar(CarNumber, CarRegion, CarSeries);
             CarsCollection = AllItems();
+            CarNumber = String.Empty;
+            CarRegion = 0;
+            CarSeries = String.Empty;
+            PayAmount = String.Empty;
+            TimeOn = TimeSpan.Zero;
         }
 
 

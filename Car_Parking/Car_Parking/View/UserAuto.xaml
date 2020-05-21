@@ -53,7 +53,7 @@
         <materialDesign:PackIcon Kind="TelephoneInTalk" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" />
         <materialDesign:PackIcon Kind="Comment" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" />
 
-        <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding CarNumber}" FontSize="20" Margin="5" MaxLength="5" x:Name="AutoNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="1234"/>
+        <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding CarNumber}" FontSize="20" Margin="5" MaxLength="4" x:Name="AutoNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="1234"/>
         <ComboBox Grid.Row="1" Grid.Column="2" Text="{Binding CarRegion}" FontSize="20" Margin="5" materialDesign:HintAssist.Hint="{lex:Loc car_region}" Foreground="#FFBF00" materialDesign:ColorZoneAssist.Mode="Inverted">
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
@@ -72,7 +72,7 @@
             <ComboBoxItem>TO</ComboBoxItem>
         </ComboBox>
         <materialDesign:TimePicker Grid.Row="3" Grid.Column="2" Text="{Binding LeaseTime, StringFormat=HH:mm}" FontSize="20" Margin="5" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" Is24Hours="True" materialDesign:HintAssist.Hint="{lex:Loc lease_time}" Foreground="#FFBF00" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding PhoneNumber}" FontSize="20" Margin="5" x:Name="UserPhonNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="123-456-78"/>
+        <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding PhoneNumber}" MaxLength="12" FontSize="20" Margin="5" x:Name="UserPhonNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="123-456-78" TextChanged="UserPhonNumber_TextChanged"/>
         <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Comment}" Margin="5" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
             VerticalAlignment="Center"
             AcceptsReturn="True"

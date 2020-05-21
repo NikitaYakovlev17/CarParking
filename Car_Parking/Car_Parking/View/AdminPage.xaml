@@ -77,7 +77,7 @@
         <TextBlock Grid.Row="0" Grid.Column="4" Text="{Binding ErrorMes}" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="red" Style="{StaticResource MaterialDesignBody2TextBlock}" />
 
 
-        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding CarsCollection}" CanUserAddRows="False" Margin="15,15.4,14.533,15.4" Foreground="#FFBF00" Background="#FF353434" GridLinesVisibility="All">
+        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding CarsCollection}" CanUserAddRows="False" Margin="15" Foreground="#FFBF00" Background="#FF353434" GridLinesVisibility="All">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Foreground" Value="#FFBF00" />
@@ -88,7 +88,7 @@
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Label Content="Время проведенное на стоянке :" VerticalAlignment="Center"  FontSize="20" Margin="10" Foreground="#FFBF00"/>
-                <TextBlock Text="{Binding TimeOut, StringFormat=d\\dh\\hm\\m}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00" />
+                <TextBlock Text="{Binding TimeOn, StringFormat=d\\dh\\hm\\m}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00" />
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">

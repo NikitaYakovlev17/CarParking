@@ -1,4 +1,4 @@
-use car_parking_db;
+use car_parking_db
 CREATE TABLE Users
 (
     UserId INT PRIMARY KEY identity(1,1),
@@ -15,12 +15,17 @@ CREATE TABLE UserCar
 	CarSeries NVARCHAR(2) ,
 	LeaseTime DATETIME PRIMARY KEY,
 	PhoneNumber NVARCHAR(17) unique, 
-	Comment NVARCHAR(100)
+	Comment NVARCHAR(100) NULL
 )
 
-CREATE TABLE LeaseTime
+CREATE TABLE CarsHistory
 (
-	LeaseTime DATETIME constraint LeaseTime_FK FOREIGN KEY REFERENCES UserCar(LeaseTime) ,
-	Time_Out DATETIME NULL,
-	PayAmount INT NULL
+	CarNumber NVARCHAR(4) unique, 
+	CarRegion INT ,
+	CarSeries NVARCHAR(2) ,
+	LeaseTime DATETIME PRIMARY KEY,
+	PhoneNumber NVARCHAR(17) unique, 
+	Comment NVARCHAR(100) NULL, 
+	TimeOut DATETIME,
+	PayAmount NVARCHAR(5)
 )

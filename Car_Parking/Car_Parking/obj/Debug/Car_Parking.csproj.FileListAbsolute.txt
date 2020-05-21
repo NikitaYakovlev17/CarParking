@@ -88,3 +88,5 @@ D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\LiveCharts.xml
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\LiveCharts.Wpf.pdb
 D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\bin\Debug\LiveCharts.Wpf.xml
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\AdminCarsHistoryPage.g.cs
+D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\obj\Debug\View\AdminCarsHistoryPage.baml

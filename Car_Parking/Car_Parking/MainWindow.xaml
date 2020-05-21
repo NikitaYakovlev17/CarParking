@@ -25,13 +25,13 @@
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame  KeyTime="0" Value="50"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="200"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="50"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -90,30 +90,41 @@
                 <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25" Foreground="#FFBF00"/>
             </Button>
             <ListView  x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
+                
                 <ListViewItem Height="150">
                     <StackPanel>
                     </StackPanel>
                 </ListViewItem>
+                
                 <ListViewItem x:Name="UserHome" Height="50">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Home" Width="35" Height="35" Foreground="#FFBF00"/>
                         <TextBlock Text="UserHome" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
                     </StackPanel>
                 </ListViewItem>
+                
                 <ListViewItem x:Name="UserAuto" Height="50">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="CarHatchback"  Width="35" Height="35" Foreground="#FFBF00"/>
                         <TextBlock Text="UserAuto" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
                     </StackPanel>
                 </ListViewItem>
+                
                 <ListViewItem x:Name="AdminPage" Height="50">
                     <StackPanel Orientation="Horizontal" >
                         <materialDesign:PackIcon Kind="AutomaticGateUpOutline" Width="35" Height="35" Foreground="#FFBF00"/>
                         <TextBlock Text="AdminPage" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
                     </StackPanel>
                 </ListViewItem>
+                
+                <ListViewItem x:Name="AdminCarsHistory" Height="50">
+                    <StackPanel Orientation="Horizontal" >
+                        <materialDesign:PackIcon Kind="ClipboardListOutline" Width="35" Height="35" Foreground="#FFBF00"/>
+                        <TextBlock Text="AdminPage" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
+                    </StackPanel>
+                </ListViewItem>
 
-                <ListViewItem Margin="0 40 0 0">
+                <ListViewItem Margin="0 25 0 0">
                     <StackPanel Orientation="Horizontal">
                         <ToggleButton Width="35" Height="35" Foreground="#FFBF00" Style="{StaticResource MaterialDesignSwitchToggleButton}" Command="{Binding Language}" ToolTip="Default ToggleButton Style"  />
                         <TextBlock Text="{lex:Loc mainwindow_language_button}" FontSize="20" Foreground="#FFBF00" />

@@ -136,6 +136,7 @@
     </ApplicationDefinition>
     <Compile Include="DB\SqlConnection.cs" />
     <Compile Include="DB\SqlConnectionCar.cs" />
+    <Compile Include="DB\SqlConnectionCarsHistory.cs" />
     <Compile Include="DB\SqlConnectionTime.cs" />
     <Compile Include="Model\Car.cs" />
     <Compile Include="Properties\Resources.en.Designer.cs">
@@ -146,6 +147,7 @@
     <Compile Include="ViewLogin.xaml.cs">
       <DependentUpon>ViewLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AdminCarHistoryViewModel.cs" />
     <Compile Include="ViewModel\AdminPageViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -155,6 +157,9 @@
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewRegister.xaml.cs">
       <DependentUpon>ViewRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminCarsHistoryPage.xaml.cs">
+      <DependentUpon>AdminCarsHistoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
@@ -182,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminCarsHistoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

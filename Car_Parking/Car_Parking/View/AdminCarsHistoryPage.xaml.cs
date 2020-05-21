@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace Car_Parking.View
 {
     /// <summary>
-    /// Логика взаимодействия для UserAuto.xaml
+    /// Логика взаимодействия для AdminCarsHistoryPage.xaml
     /// </summary>
-    public partial class UserAuto : Page
+    public partial class AdminCarsHistoryPage : Page
     {
-        public UserAuto()
+        public AdminCarsHistoryPage()
         {
             InitializeComponent();
-        }
-
-        private void UserPhonNumber_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

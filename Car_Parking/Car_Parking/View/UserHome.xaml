@@ -17,17 +17,32 @@
     
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"></ColumnDefinition>
-            <ColumnDefinition Width="0.3*"></ColumnDefinition>
-            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*" ></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <Label Grid.Row="0" Grid.Column="0" Content="Сектор A" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
 
-        <Wpf:Gauge x:Name="Field1" Margin="10"  Grid.Row="0" Grid.Column="0"
+        <Wpf:Gauge Grid.Row="0" Grid.Column="0" x:Name="Field1" Margin="20 30 20 20" 
+                   From="0" To="50" Value="{Binding ValueIOT}"
+                   LabelsVisibility="Visible" Foreground="#FFBF00">
+                <Wpf:Gauge.GaugeActiveFill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFBF00" Offset="0.0" />
+                        <GradientStop Color="#FFBF00" Offset="0.5" />
+                        <GradientStop Color="#FFBF00" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Wpf:Gauge.GaugeActiveFill>
+         </Wpf:Gauge>
+
+
+        <Label Grid.Row="0" Grid.Column="1" Content="Сектор B" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+
+        <Wpf:Gauge Grid.Row="0" Grid.Column="1" x:Name="Field2" Margin="20 30 20 20" 
                    From="0" To="50" Value="{Binding ValueIOT}"
                    LabelsVisibility="Visible" Foreground="#FFBF00">
             <Wpf:Gauge.GaugeActiveFill>
@@ -38,5 +53,39 @@
                 </LinearGradientBrush>
             </Wpf:Gauge.GaugeActiveFill>
         </Wpf:Gauge>
+
+
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Сектор C" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+
+        <Wpf:Gauge Grid.Row="1" Grid.Column="0" x:Name="Field3" Margin="20 30 20 20" 
+                   From="0" To="50" Value="{Binding ValueIOT}"
+                   LabelsVisibility="Visible" Foreground="#FFBF00">
+            <Wpf:Gauge.GaugeActiveFill>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FFBF00" Offset="0.0" />
+                    <GradientStop Color="#FFBF00" Offset="0.5" />
+                    <GradientStop Color="#FFBF00" Offset="1.0" />
+                </LinearGradientBrush>
+            </Wpf:Gauge.GaugeActiveFill>
+        </Wpf:Gauge>
+
+
+
+        <Label Grid.Row="1" Grid.Column="1" Content="Сектор D" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+
+        <Wpf:Gauge Grid.Row="1" Grid.Column="1" x:Name="Field4" Margin="20 30 20 20" 
+                   From="0" To="50" Value="{Binding ValueIOT}"
+                   LabelsVisibility="Visible" Foreground="#FFBF00">
+            <Wpf:Gauge.GaugeActiveFill>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FFBF00" Offset="0.0" />
+                    <GradientStop Color="#FFBF00" Offset="0.5" />
+                    <GradientStop Color="#FFBF00" Offset="1.0" />
+                </LinearGradientBrush>
+            </Wpf:Gauge.GaugeActiveFill>
+        </Wpf:Gauge>
+
+
     </Grid>
 </Page>

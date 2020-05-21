@@ -109,7 +109,7 @@ namespace Car_Parking.ViewModel
 
         public int PhoneLength { get; set; }
 
-        public async Task PhoneMask()
+        public void PhoneMask()
         {
             var newVal = Regex.Replace(PhoneNumber, @"[^0-9]", "");
             if (PhoneLength != newVal.Length && !string.IsNullOrEmpty(newVal))
@@ -178,8 +178,13 @@ namespace Car_Parking.ViewModel
             {
                 SqlConnectionCar spam = new SqlConnectionCar();
                 spam.InsertUserCarRecords(CarNumber, CarRegion, CarSeries, LeaseTime, PhoneNumber, Comment);
-                SqlConnectionTime spamTime = new SqlConnectionTime();
-                spamTime.InsertLeaseTimeRecords(LeaseTime, TimeOut, PayAmount);                
+                CarNumber = String.Empty;
+                CarRegion = 0;
+                CarSeries = String.Empty;
+                LeaseTime = DateTime.Now;
+                PhoneNumber = String.Empty;
+                Comment = String.Empty;
+                PhoneLength = 0;
             }
         }
 

@@ -59,6 +59,7 @@ namespace Car_Parking.ViewModel
                 {
                     PhoneNumberLog = Regex.Replace(newVal, @"(375)(\d{2})(\d{0,3})(\d{0,2})(\d{0,2})", "+$1($2)$3-$4-$5");
                 }
+                PhoneLength = 0;
             }
         }
 
@@ -96,9 +97,6 @@ namespace Car_Parking.ViewModel
             bool IsDone = true;
             flag = true;
             ErrorMes = "";
-            PhoneNumberLog += " ";
-            int x1 = PhoneNumberLog.Length - 1;
-            PhoneNumberLog = PhoneNumberLog.Substring(0, x1);
 
             if (PasswordSecond == String.Empty || PasswordSecond == null)
             {
