@@ -7,6 +7,12 @@ CREATE TABLE Users
 	IsAdmin bit, 
 )
 
+CREATE TABLE ParkingSpace
+(
+	SpaceType NVARCHAR(10) PRIMARY KEY,
+	PayAmount NVARCHAR(5)
+)
+
 CREATE TABLE UserCar
 (
 	IdUser INT constraint  User_FK FOREIGN KEY  REFERENCES Users(UserId) ,
@@ -15,7 +21,7 @@ CREATE TABLE UserCar
 	CarSeries NVARCHAR(2) ,
 	LeaseTime DATETIME PRIMARY KEY,
 	PhoneNumber NVARCHAR(17) unique, 
-	Comment NVARCHAR(100) NULL
+	SpaceType NVARCHAR(10) constraint  SpaceType_FK FOREIGN KEY  REFERENCES ParkingSpace(SpaceType)
 )
 
 CREATE TABLE CarsHistory
@@ -25,7 +31,7 @@ CREATE TABLE CarsHistory
 	CarSeries NVARCHAR(2) ,
 	LeaseTime DATETIME PRIMARY KEY,
 	PhoneNumber NVARCHAR(17) unique, 
-	Comment NVARCHAR(100) NULL, 
+	SpaceType NVARCHAR(10) FOREIGN KEY  REFERENCES ParkingSpace(SpaceType),
 	TimeOut DATETIME,
-	PayAmount NVARCHAR(5)
+	PayAmount NVARCHAR(5) 
 )

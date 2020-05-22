@@ -124,20 +124,20 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Некорректный сектор.
+        /// </summary>
+        internal static string carSpaceEmpty {
+            get {
+                return ResourceManager.GetString("carSpaceEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Не менее 6 символов.
         /// </summary>
         internal static string charac {
             get {
                 return ResourceManager.GetString("charac", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Коментарий :.
-        /// </summary>
-        internal static string comment {
-            get {
-                return ResourceManager.GetString("comment", resourceCulture);
             }
         }
         
@@ -327,6 +327,15 @@ namespace Car_Parking.Properties {
         internal static string rules_lable {
             get {
                 return ResourceManager.GetString("rules_lable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сектор :.
+        /// </summary>
+        internal static string space {
+            get {
+                return ResourceManager.GetString("space", resourceCulture);
             }
         }
     }

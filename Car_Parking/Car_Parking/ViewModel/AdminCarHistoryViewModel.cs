@@ -139,12 +139,6 @@ namespace Car_Parking.ViewModel
             CarsCollection = AllItems();
         }
 
-
-
-
-
-
-
         bool flag = false;
 
         private string errorMes;

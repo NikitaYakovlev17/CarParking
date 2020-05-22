@@ -76,14 +76,14 @@ namespace Car_Parking.ViewModel
             }
         }
 
-        private string comment;
-        public string Comment
+        private string spaceType;
+        public string SpaceType
         {
-            get { return comment; }
+            get { return spaceType; }
             set
             {
-                this.comment = value;
-                RaisePropertiesChanged(nameof(Comment));
+                this.spaceType = value;
+                RaisePropertiesChanged(nameof(SpaceType));
             }
         }
 
@@ -95,6 +95,17 @@ namespace Car_Parking.ViewModel
             {
                 this.payAmount = value;
                 RaisePropertiesChanged(nameof(PayAmount));
+            }
+        }
+
+        private string payAmountSum;
+        public string PayAmountSum
+        {
+            get { return payAmountSum; }
+            set
+            {
+                this.payAmountSum = value;
+                RaisePropertiesChanged(nameof(PayAmountSum));
             }
         }
 
@@ -179,27 +190,38 @@ namespace Car_Parking.ViewModel
             if (flagToAccept)
             {
                 SqlConnectionCar spam = new SqlConnectionCar();
-                PayAmount = payAmount_func();
-                CarsCollection = GetProducts();                
+                CarsCollection = GetProducts();
+                PayAmountSum = payAmountSum_func();
                 TimeOn = GetTimeOut();
                 IsEnableDone = true;                
             }
         }
 
-        public string payAmount_func()
+        public string getPayAmunt()
+        {
+            SqlConnectionSpace spam = new SqlConnectionSpace();
+            PayAmount = spam.GetPayAmountBySpace(SpaceType);
+            return PayAmount;            
+        }
+
+        public string payAmountSum_func()
         {
             var leaseTime = (from time in CarsCollection select time.LeaseTime);
             DateTime leaseTime2;
+            var space = (from item in CarsCollection select item.SpaceType);
+            foreach (var item in space)
+                SpaceType = item;
+            PayAmount = getPayAmunt();
             foreach (var time in leaseTime)
             {
                 leaseTime2 = time;
                 DateTime timeOut = DateTime.Now;
                 TimeSpan t = timeOut.Subtract(leaseTime2);
-                int q = Convert.ToInt32(t.TotalHours);
-                PayAmount = Convert.ToString((q + 1) * 2 +"$");               
+                int q = Convert.ToInt32(Math.Floor(t.TotalHours));
+                PayAmountSum = Convert.ToString((q + 1) * Convert.ToInt32(PayAmount) +"$");               
             }
 
-            return PayAmount;
+            return PayAmountSum;
         }
 
         private ObservableCollection<Car> carsCollection;
@@ -223,6 +245,7 @@ namespace Car_Parking.ViewModel
         }
         private ObservableCollection<Car> AllItems()
         {
+            PayAmount = getPayAmunt();
             SqlConnectionCar spam = new SqlConnectionCar();
             ObservableCollection<Car> carsDB = spam.ReadUsersRecords();
             CarsCollection = new ObservableCollection<Car>();
@@ -238,7 +261,7 @@ namespace Car_Parking.ViewModel
         {
             SqlConnectionCar spam = new SqlConnectionCar();
             ObservableCollection<Car> carsDB = spam.GiveUsersRecords(CarNumber, CarRegion, CarSeries);
-            CarsCollection = new ObservableCollection<Car>();
+            CarsCollection = new ObservableCollection<Car>();            
             if (carsDB != null)
             {
                 foreach (var item in carsDB)
@@ -258,19 +281,19 @@ namespace Car_Parking.ViewModel
             var phoneNumber = (from item in CarsCollection select item.PhoneNumber);
             foreach (var number in phoneNumber)
                 PhoneNumber = number;
-            var comment = (from item in CarsCollection select item.Comment);
-            foreach (var com in comment)
-                Comment = com;
-            PayAmount = payAmount_func();
+            var spaceType = (from item in CarsCollection select item.SpaceType);
+            foreach (var space in spaceType)
+                SpaceType = space;
+            PayAmountSum = payAmountSum_func();
             SqlConnectionCarsHistory history = new SqlConnectionCarsHistory();
-            history.InsertUserCarRecords(CarNumber, CarRegion, CarSeries, LeaseTime, PhoneNumber, Comment, TimeOut, PayAmount);
+            history.InsertUserCarRecords(CarNumber, CarRegion, CarSeries, LeaseTime, PhoneNumber, SpaceType, TimeOut, PayAmountSum);
             SqlConnectionCar spam = new SqlConnectionCar();
             spam.DeleteCar(CarNumber, CarRegion, CarSeries);
             CarsCollection = AllItems();
             CarNumber = String.Empty;
             CarRegion = 0;
             CarSeries = String.Empty;
-            PayAmount = String.Empty;
+            PayAmountSum = String.Empty;
             TimeOn = TimeSpan.Zero;
         }
 

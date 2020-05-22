@@ -129,6 +129,9 @@
   <data name="carSeriesEmpty" xml:space="preserve">
     <value>Некорректная серия авто</value>
   </data>
+  <data name="carSpaceEmpty" xml:space="preserve">
+    <value>Некорректный сектор</value>
+  </data>
   <data name="car_number" xml:space="preserve">
     <value>Номер авто :</value>
   </data>
@@ -140,9 +143,6 @@
   </data>
   <data name="charac" xml:space="preserve">
     <value>Не менее 6 символов</value>
-  </data>
-  <data name="comment" xml:space="preserve">
-    <value>Коментарий :</value>
   </data>
   <data name="comment_example" xml:space="preserve">
     <value>Напишите коментарий</value>
@@ -206,5 +206,8 @@
   </data>
   <data name="rule_4" xml:space="preserve">
     <value>4. Покинуть парковочное место необходимо незамедлительно после истечения сеанса парковки (оплаченного времени).</value>
+  </data>
+  <data name="space" xml:space="preserve">
+    <value>Сектор :</value>
   </data>
 </root>

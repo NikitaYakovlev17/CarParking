@@ -93,7 +93,7 @@
             
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Label Content="Сумма к оплате :" VerticalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
-                <TextBlock Text="{Binding PayAmount}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00" />
+                <TextBlock Text="{Binding PayAmountSum}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00" />
             </StackPanel>
         </StackPanel>
 

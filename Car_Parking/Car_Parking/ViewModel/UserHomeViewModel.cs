@@ -22,14 +22,47 @@ namespace Car_Parking.ViewModel
     class UserHomeViewModel : ViewModelBase
     {
 
-        private int valueIOT;
-        public int ValueIOT
+        private int valueA;
+        public int ValueA
         {
-            get { return valueIOT; }
+            get { return valueA; }
             set
             {
-                this.valueIOT = value;
-                RaisePropertiesChanged(nameof(ValueIOT));
+                this.valueA = value;
+                RaisePropertiesChanged(nameof(ValueA));
+            }
+        }
+
+        private int valueB;
+        public int ValueB
+        {
+            get { return valueB; }
+            set
+            {
+                this.valueB = value;
+                RaisePropertiesChanged(nameof(ValueB));
+            }
+        }
+
+        private int valueC;
+        public int ValueC
+        {
+            get { return valueC; }
+            set
+            {
+                this.valueC = value;
+                RaisePropertiesChanged(nameof(ValueC));
+            }
+        }
+
+        private int valueD;
+        public int ValueD
+        {
+            get { return valueD; }
+            set
+            {
+                this.valueD = value;
+                RaisePropertiesChanged(nameof(ValueD));
             }
         }
 
@@ -51,7 +84,14 @@ namespace Car_Parking.ViewModel
         public UserHomeViewModel()
         {
             CarsCollection = AllItems();
-            ValueIOT = CarsCollection.Count();
+            int CountA = (from item in CarsCollection where item.SpaceType.Equals("Сектор A") select item).Count();
+            int CountB = (from item in CarsCollection where item.SpaceType.Equals("Сектор B") select item).Count();
+            int CountC = (from item in CarsCollection where item.SpaceType.Equals("Сектор C") select item).Count();
+            int CountD = (from item in CarsCollection where item.SpaceType.Equals("Сектор D") select item).Count();
+            ValueA = CountA;
+            ValueB = CountB;
+            ValueC = CountC;
+            ValueD = CountD;
         }
         private ObservableCollection<Car> AllItems()
         {

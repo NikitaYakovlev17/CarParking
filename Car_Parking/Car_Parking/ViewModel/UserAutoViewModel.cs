@@ -95,14 +95,14 @@ namespace Car_Parking.ViewModel
             }
         }
 
-        private string comment;
-        public string Comment
+        private string spaceType;
+        public string SpaceType
         {
-            get { return comment; }
+            get { return spaceType; }
             set
             {
-                this.comment = value;
-                RaisePropertiesChanged(nameof(Comment));
+                this.spaceType = value;
+                RaisePropertiesChanged(nameof(SpaceType));
             }
         }
 
@@ -164,7 +164,12 @@ namespace Car_Parking.ViewModel
                 flagToAccept = false;
                 ErrorMes = Properties.Resources.carSeriesEmpty;
             }
-            if(LeaseTime == null)
+            if(SpaceType == null || SpaceType == String.Empty)
+            {
+                flagToAccept = false;
+                ErrorMes = Properties.Resources.carSpaceEmpty;
+            }
+            if (LeaseTime == null)
             {
                 flagToAccept = false;
                 ErrorMes = Properties.Resources.leaseTimeEmpty;
@@ -177,13 +182,13 @@ namespace Car_Parking.ViewModel
             if (flagToAccept)
             {
                 SqlConnectionCar spam = new SqlConnectionCar();
-                spam.InsertUserCarRecords(CarNumber, CarRegion, CarSeries, LeaseTime, PhoneNumber, Comment);
+                spam.InsertUserCarRecords(CarNumber, CarRegion, CarSeries, LeaseTime, PhoneNumber, SpaceType);
                 CarNumber = String.Empty;
                 CarRegion = 0;
                 CarSeries = String.Empty;
                 LeaseTime = DateTime.Now;
                 PhoneNumber = String.Empty;
-                Comment = String.Empty;
+                SpaceType = String.Empty;
                 PhoneLength = 0;
             }
         }

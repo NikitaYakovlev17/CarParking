@@ -137,7 +137,7 @@
     <Compile Include="DB\SqlConnection.cs" />
     <Compile Include="DB\SqlConnectionCar.cs" />
     <Compile Include="DB\SqlConnectionCarsHistory.cs" />
-    <Compile Include="DB\SqlConnectionTime.cs" />
+    <Compile Include="DB\SqlConnectionSpace.cs" />
     <Compile Include="Model\Car.cs" />
     <Compile Include="Properties\Resources.en.Designer.cs">
       <DependentUpon>Resources.en.resx</DependentUpon>

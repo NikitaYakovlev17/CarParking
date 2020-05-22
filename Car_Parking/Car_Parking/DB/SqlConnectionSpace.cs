@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Car_Parking.DB
 {
-    class SqlConnectionTime
+    class SqlConnectionSpace
     {
         private string sqlString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
@@ -38,7 +38,7 @@ namespace Car_Parking.DB
 
         }
 
-        public bool InsertLeaseTimeRecords(DateTime leaseTime, DateTime timeOut, int payAmount)
+        public string GetPayAmountBySpace(string spaceType)
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -47,21 +47,22 @@ namespace Car_Parking.DB
                     connect.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
-                    command.CommandText = @"INSERT INTO LeaseTime VALUES (@LeaseTime, @Time_Out, @PayAmount)";
+                    command.CommandText = @"Select PayAmount From ParkingSpace Where SpaceType = @SpaceType";
+                    command.Parameters.Add("@SpaceType", SqlDbType.NVarChar, 50);
 
-                    command.Parameters.Add("@LeaseTime", SqlDbType.DateTime);
-                    command.Parameters.Add("@Time_Out", SqlDbType.DateTime);
-                    command.Parameters.Add("@PayAmount", SqlDbType.Int);
-
-                    command.Parameters["@LeaseTime"].Value = leaseTime;
-                    command.Parameters["@Time_Out"].Value = timeOut;
-                    command.Parameters["@PayAmount"].Value = payAmount;
-                    command.ExecuteNonQuery();
-                    return true;
+                    command.Parameters["@SpaceType"].Value = spaceType;
+                    SqlDataReader info = command.ExecuteReader();
+                    object id = -1;
+                    while (info.Read())
+                    {
+                        id = info["PayAmount"];
+                        break;
+                    }
+                    return Convert.ToString(id);
                 }
                 catch (Exception e)
                 {
-                    return false;
+                    return "";
                 }
             }
 

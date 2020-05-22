@@ -42,16 +42,16 @@
         <Label Grid.Row="0" Grid.Column="0" Content="{lex:Loc car_number}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
         <Label Grid.Row="1" Grid.Column="0" Content="{lex:Loc car_region}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
         <Label Grid.Row="2" Grid.Column="0" Content="{lex:Loc car_series}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="3" Grid.Column="0" Content="{lex:Loc lease_time}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="4" Grid.Column="0" Content="{lex:Loc phone_number}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="5" Grid.Column="0" Content="{lex:Loc comment}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="{lex:Loc space}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="{lex:Loc lease_time}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="{lex:Loc phone_number}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
 
         <materialDesign:PackIcon Kind="CarBack" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <materialDesign:PackIcon Kind="City" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <materialDesign:PackIcon Kind="CardBulleted" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <materialDesign:PackIcon Kind="TimerSand" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <materialDesign:PackIcon Kind="TelephoneInTalk" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" />
-        <materialDesign:PackIcon Kind="Comment" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" />
+        <materialDesign:PackIcon Kind="Comment" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" />
+        <materialDesign:PackIcon Kind="TimerSand" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <materialDesign:PackIcon Kind="TelephoneInTalk" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" />
 
         <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding CarNumber}" FontSize="20" Margin="5" MaxLength="4" x:Name="AutoNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="1234"/>
         <ComboBox Grid.Row="1" Grid.Column="2" Text="{Binding CarRegion}" FontSize="20" Margin="5" materialDesign:HintAssist.Hint="{lex:Loc car_region}" Foreground="#FFBF00" materialDesign:ColorZoneAssist.Mode="Inverted">
@@ -71,17 +71,14 @@
             <ComboBoxItem>OP</ComboBoxItem>
             <ComboBoxItem>TO</ComboBoxItem>
         </ComboBox>
-        <materialDesign:TimePicker Grid.Row="3" Grid.Column="2" Text="{Binding LeaseTime, StringFormat=HH:mm}" FontSize="20" Margin="5" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" Is24Hours="True" materialDesign:HintAssist.Hint="{lex:Loc lease_time}" Foreground="#FFBF00" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding PhoneNumber}" MaxLength="12" FontSize="20" Margin="5" x:Name="UserPhonNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="123-456-78" TextChanged="UserPhonNumber_TextChanged"/>
-        <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Comment}" Margin="5" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
-            VerticalAlignment="Center"
-            AcceptsReturn="True"
-            TextWrapping="Wrap"
-            MaxWidth="400"
-            FontSize="15"
-            Foreground="#FFBF00"
-            materialDesign:HintAssist.Hint="{lex:Loc comment_example}"
-            IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}" />
+        <ComboBox Grid.Row="3" Grid.Column="2" Text="{Binding SpaceType}" FontSize="20" Margin="5" materialDesign:HintAssist.Hint="{lex:Loc space}" Foreground="#FFBF00" materialDesign:ColorZoneAssist.Mode="Inverted">
+            <ComboBoxItem>Сектор A</ComboBoxItem>
+            <ComboBoxItem>Сектор B</ComboBoxItem>
+            <ComboBoxItem>Сектор C</ComboBoxItem>
+            <ComboBoxItem>Сектор D</ComboBoxItem>
+        </ComboBox>
+        <materialDesign:TimePicker Grid.Row="4" Grid.Column="2" Text="{Binding LeaseTime, StringFormat=HH:mm}" FontSize="20" Margin="5" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" Is24Hours="True" materialDesign:HintAssist.Hint="{lex:Loc lease_time}" Foreground="#FFBF00" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding PhoneNumber}" MaxLength="12" FontSize="20" Margin="5" x:Name="UserPhonNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="123-456-78" TextChanged="UserPhonNumber_TextChanged"/>
         <TextBlock Grid.Row="6" Grid.Column="2" Text="{Binding ErrorMes}" Foreground="red" Width="240" Style="{StaticResource MaterialDesignBody2TextBlock}"></TextBlock>
 
 

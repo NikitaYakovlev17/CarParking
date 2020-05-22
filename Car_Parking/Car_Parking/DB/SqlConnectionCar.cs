@@ -39,11 +39,11 @@ namespace Car_Parking.DB
                             string car_number = reader["CarNumber"].ToString();
                             int car_region = Convert.ToInt32(reader["CarRegion"]);
                             string car_series = reader["CarSeries"].ToString();
+                            string spaceType = reader["SpaceType"].ToString();
                             DateTime lease_time = Convert.ToDateTime(reader["LeaseTime"]);
                             string phone_number = reader["PhoneNumber"].ToString();
-                            string comment = reader["Comment"].ToString();
 
-                            spam.Add(new Car() { CarNumber = car_number, CarRegion = car_region, CarSeries = car_series, LeaseTime = lease_time, TimeOut = DateTime.Now, PhoneNumber = phone_number, Comment = comment });
+                            spam.Add(new Car() { CarNumber = car_number, CarRegion = car_region, CarSeries = car_series, SpaceType = spaceType, LeaseTime = lease_time, TimeOut = DateTime.Now, PhoneNumber = phone_number});
                         }
                     }
                     return spam;
@@ -56,7 +56,7 @@ namespace Car_Parking.DB
 
         }
 
-        public bool InsertUserCarRecords(string carNumber, int carRegion, string carSeries, DateTime leaseTime, string phoneNumber, string comment)
+        public bool InsertUserCarRecords(string carNumber, int carRegion, string carSeries, DateTime leaseTime, string phoneNumber, string spaceType)
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -65,14 +65,14 @@ namespace Car_Parking.DB
                     connect.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
-                    command.CommandText = @"INSERT INTO UserCar VALUES (@IdUser, @CarNumber, @CarRegion, @CarSeries, @LeaseTime, @PhoneNumber, @Comment)";
+                    command.CommandText = @"INSERT INTO UserCar VALUES (@IdUser, @CarNumber, @CarRegion, @CarSeries, @LeaseTime, @PhoneNumber, @SpaceType)";
                     command.Parameters.Add("@IdUser", SqlDbType.Int);
                     command.Parameters.Add("@CarNumber", SqlDbType.NVarChar, 4);
                     command.Parameters.Add("@CarRegion", SqlDbType.Int, 2);
                     command.Parameters.Add("@CarSeries", SqlDbType.NVarChar, 2);
                     command.Parameters.Add("@LeaseTime", SqlDbType.DateTime);
-                    command.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 17);
-                    command.Parameters.Add("@Comment", SqlDbType.NVarChar, 100);
+                    command.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 17); 
+                    command.Parameters.Add("@SpaceType", SqlDbType.NVarChar, 10);
 
                     command.Parameters["@IdUser"].Value = Convert.ToInt32(Properties.Settings.Default.UserId);
                     command.Parameters["@CarNumber"].Value = carNumber;
@@ -80,7 +80,7 @@ namespace Car_Parking.DB
                     command.Parameters["@CarSeries"].Value = carSeries;
                     command.Parameters["@LeaseTime"].Value = leaseTime;
                     command.Parameters["@PhoneNumber"].Value = phoneNumber;
-                    command.Parameters["@Comment"].Value = comment;
+                    command.Parameters["@SpaceType"].Value = spaceType;
                     command.ExecuteNonQuery();
                     return true;
                 }
@@ -150,11 +150,11 @@ namespace Car_Parking.DB
                             string car_number = reader["CarNumber"].ToString();
                             int car_region = Convert.ToInt32(reader["CarRegion"]);
                             string car_series = reader["CarSeries"].ToString();
+                            string spaceType = reader["SpaceType"].ToString();
                             DateTime lease_time = Convert.ToDateTime(reader["LeaseTime"]);
                             string phone_number = reader["PhoneNumber"].ToString();
-                            string comment = reader["Comment"].ToString();
 
-                            spam.Add(new Car() { CarNumber = car_number, CarRegion = car_region, CarSeries = car_series, LeaseTime = lease_time, TimeOut = DateTime.Now, PhoneNumber = phone_number, Comment = comment });
+                            spam.Add(new Car() { CarNumber = car_number, CarRegion = car_region, CarSeries = car_series, SpaceType = spaceType, LeaseTime = lease_time, TimeOut = DateTime.Now, PhoneNumber = phone_number});
                         }
                     }
                     return spam;
