@@ -6,6 +6,12 @@
       xmlns:local="clr-namespace:Car_Parking.View"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:viewmodel="clr-namespace:Car_Parking.ViewModel"
+      
+      xmlns:lex="http://wpflocalizeextension.codeplex.com"
+      lex:LocalizeDictionary.DesignCulture=""
+      lex:ResxLocalizationProvider.DefaultAssembly="Car_Parking"    
+      lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+      
       xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -25,7 +31,7 @@
             <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Сектор A" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="{lex:Loc sector A}" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
 
         <Wpf:Gauge Grid.Row="0" Grid.Column="0" x:Name="Field1" Margin="20 30 20 20" 
                    From="0" To="15" Value="{Binding ValueA}"
@@ -40,7 +46,7 @@
          </Wpf:Gauge>
 
 
-        <Label Grid.Row="0" Grid.Column="1" Content="Сектор B" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+        <Label Grid.Row="0" Grid.Column="1" Content="{lex:Loc sector B}" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
 
         <Wpf:Gauge Grid.Row="0" Grid.Column="1" x:Name="Field2" Margin="20 30 20 20" 
                    From="0" To="15" Value="{Binding ValueB}"
@@ -56,7 +62,7 @@
 
 
 
-        <Label Grid.Row="1" Grid.Column="0" Content="Сектор C" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="{lex:Loc sector C}" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
 
         <Wpf:Gauge Grid.Row="1" Grid.Column="0" x:Name="Field3" Margin="20 30 20 20" 
                    From="0" To="15" Value="{Binding ValueC}"
@@ -72,7 +78,7 @@
 
 
 
-        <Label Grid.Row="1" Grid.Column="1" Content="Сектор D" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="{lex:Loc sector D}" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
 
         <Wpf:Gauge Grid.Row="1" Grid.Column="1" x:Name="Field4" Margin="20 30 20 20" 
                    From="0" To="15" Value="{Binding ValueD}"

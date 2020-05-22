@@ -6,7 +6,12 @@
       xmlns:local="clr-namespace:Car_Parking.View"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:viewmodel="clr-namespace:Car_Parking.ViewModel"
-
+      
+      xmlns:lex="http://wpflocalizeextension.codeplex.com"
+      lex:LocalizeDictionary.DesignCulture=""
+      lex:ResxLocalizationProvider.DefaultAssembly="Car_Parking"    
+      lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+      
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AdminCarsHistoryPage" Background="#FF353434">
@@ -28,7 +33,7 @@
             <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Введите номер телефона :" VerticalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="{lex:Loc enter phone}" VerticalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
             <materialDesign:PackIcon Kind="TelephoneInTalk" VerticalAlignment="Center" HorizontalAlignment="Right" />
             <TextBox Text="{Binding PhoneNumber}" MaxLength="12" FontSize="20" Margin="5" MinWidth="150" x:Name="UserPhonNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="123-456-78"/>
@@ -42,7 +47,7 @@
             materialDesign:ButtonAssist.CornerRadius="10"
             ToolTip="MaterialDesignRaisedButton with Round Corners">
             <TextBlock
-                Text="Поиск" />
+                Text="{lex:Loc search}" />
         </Button>
 
         <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" ItemsSource="{Binding CarsCollection}" CanUserAddRows="False" Margin="15" Foreground="#FFBF00" Background="#FF353434" GridLinesVisibility="All">
@@ -61,7 +66,7 @@
             materialDesign:ButtonAssist.CornerRadius="10"
             ToolTip="MaterialDesignRaisedButton with Round Corners">
             <TextBlock
-                Text="Все автомобили" />
+                Text="{lex:Loc all auto}" />
         </Button>
     </Grid>
 </Page>

@@ -92,7 +92,7 @@ namespace Car_Parking.DB
 
         }
 
-        public string GetIdUserByName(string phoneNumberLog)
+        public bool GetIdUserByName(string phoneNumberLog)
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -106,17 +106,15 @@ namespace Car_Parking.DB
 
                     command.Parameters["@PhoneNumberLog"].Value = phoneNumberLog;
                     SqlDataReader info = command.ExecuteReader();
-                    object id = -1;
                     while (info.Read())
                     {
-                        id = info["UserId"];
-                        break;
+                        return true;
                     }
-                    return Convert.ToString(id);
+                        return false;
                 }
                 catch (Exception e)
                 {
-                    return "";
+                    return false;
                 }
             }
 

@@ -120,14 +120,20 @@
   <data name="accept_button_blank" xml:space="preserve">
     <value>ACCEPT</value>
   </data>
+  <data name="all auto" xml:space="preserve">
+    <value>ALL AUTO</value>
+  </data>
+  <data name="car" xml:space="preserve">
+    <value>CAR</value>
+  </data>
   <data name="car_number" xml:space="preserve">
-    <value>Car number</value>
+    <value>Car number :</value>
   </data>
   <data name="car_region" xml:space="preserve">
-    <value>Region</value>
+    <value>Region :</value>
   </data>
   <data name="car_series" xml:space="preserve">
-    <value>Series</value>
+    <value>Series :</value>
   </data>
   <data name="comment" xml:space="preserve">
     <value>Comment</value>
@@ -135,14 +141,32 @@
   <data name="comment_example" xml:space="preserve">
     <value>Write a comment</value>
   </data>
+  <data name="enter phone" xml:space="preserve">
+    <value>Enter phone number :</value>
+  </data>
+  <data name="fillAdminPage" xml:space="preserve">
+    <value>Fill in the fields :</value>
+  </data>
+  <data name="history" xml:space="preserve">
+    <value>HISTORY</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>HOME</value>
+  </data>
   <data name="lease_time" xml:space="preserve">
-    <value>Start lease time</value>
+    <value>Start lease time :</value>
   </data>
   <data name="mainwindow_language_button" xml:space="preserve">
     <value>EN</value>
   </data>
+  <data name="payAmountSum" xml:space="preserve">
+    <value>Amount to be paid :</value>
+  </data>
+  <data name="payment" xml:space="preserve">
+    <value>PAYMENT</value>
+  </data>
   <data name="phone_number" xml:space="preserve">
-    <value>Phone number</value>
+    <value>Phone number :</value>
   </data>
   <data name="rules_lable" xml:space="preserve">
     <value>The rules of Parking</value>
@@ -158,5 +182,26 @@
   </data>
   <data name="rule_4" xml:space="preserve">
     <value>4. Leave the Parking space immediately after the end of the Parking session (paid time).</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>SEARCH</value>
+  </data>
+  <data name="sector A" xml:space="preserve">
+    <value>Sector A</value>
+  </data>
+  <data name="sector B" xml:space="preserve">
+    <value>Sector B</value>
+  </data>
+  <data name="sector C" xml:space="preserve">
+    <value>Sector C</value>
+  </data>
+  <data name="sector D" xml:space="preserve">
+    <value>Sector D</value>
+  </data>
+  <data name="space" xml:space="preserve">
+    <value>Sector :</value>
+  </data>
+  <data name="timeOnParking" xml:space="preserve">
+    <value>Time spent in the Parking lot :</value>
   </data>
 </root>

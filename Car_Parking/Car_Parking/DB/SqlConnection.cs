@@ -39,7 +39,7 @@ namespace Car_Parking.DB
         }
 
 
-        public bool InsertUsersRecords(string phoneNumberLog, string password)
+        public bool InsertUsersRecords(string phoneNumberLog, string password, bool isAdmin)
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -48,12 +48,14 @@ namespace Car_Parking.DB
                     connect.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
-                    command.CommandText = @"INSERT INTO Users VALUES (@PhoneNumberLog, @Password, 0)";
+                    command.CommandText = @"INSERT INTO Users VALUES (@PhoneNumberLog, @Password, @IsAdmin)";
                     command.Parameters.Add("@PhoneNumberLog", SqlDbType.NVarChar, 50);
                     command.Parameters.Add("@Password", SqlDbType.NVarChar, 50);
+                    command.Parameters.Add("@IsAdmin", SqlDbType.Bit);
 
                     command.Parameters["@PhoneNumberLog"].Value = phoneNumberLog;
                     command.Parameters["@Password"].Value = password;
+                    command.Parameters["@IsAdmin"].Value = isAdmin;
                     command.ExecuteNonQuery();
                     return true;
                 }
@@ -127,7 +129,7 @@ namespace Car_Parking.DB
         }
 
 
-        public bool DeleteCar(string name)
+        public bool IsAdminById()
         {
             using (SqlConnection connect = new SqlConnection(sqlString))
             {
@@ -136,12 +138,16 @@ namespace Car_Parking.DB
                     connect.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
-                    command.CommandText = @"DELETE TaskTypes Where TaskTypeName=@TaskTypeName";
-                    command.Parameters.Add("@TaskTypeName", SqlDbType.NVarChar, 50);
+                    command.CommandText = @"Select * From Users Where UserId = @UserId and IsAdmin = 1";
+                    command.Parameters.Add("@UserId", SqlDbType.Int);
 
-                    command.Parameters["@TaskTypeName"].Value = name;
-                    command.ExecuteNonQuery();
-                    return true;
+                    command.Parameters["@UserId"].Value = Convert.ToInt32(Properties.Settings.Default.UserId);
+                    SqlDataReader info = command.ExecuteReader();
+                    while(info.Read())
+                    {
+                        return true;
+                    }
+                    return false;
                 }
                 catch (Exception e)
                 {
@@ -149,6 +155,7 @@ namespace Car_Parking.DB
                 }
             }
 
-        }        
+        }
+
     }
 }

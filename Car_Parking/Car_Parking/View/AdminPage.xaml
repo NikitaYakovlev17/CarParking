@@ -35,7 +35,7 @@
             <RowDefinition Height="0.3*" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Заполните поля :" VerticalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="{lex:Loc fillAdminPage}" VerticalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
             <materialDesign:PackIcon Kind="CarBack" VerticalAlignment="Center"/>
             <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding CarNumber}" FontSize="20" MaxLength="4" Width="100" Margin="5" x:Name="AutoNumber" VerticalAlignment="Center" Foreground="#FFBF00" materialDesign:HintAssist.Hint="1234"/>
@@ -86,19 +86,23 @@
         </DataGrid>
 
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Label Content="Время проведенное на стоянке :" VerticalAlignment="Center"  FontSize="20" Margin="10" Foreground="#FFBF00"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0 20 0 0">
+                <Label Content="{lex:Loc timeOnParking}" VerticalAlignment="Center"  FontSize="20" Margin="10" Foreground="#FFBF00"/>
                 <TextBlock Text="{Binding TimeOn, StringFormat=d\\dh\\hm\\m}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00" />
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Label Content="Сумма к оплате :" VerticalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
+                <Label Content="{lex:Loc payAmountSum}" VerticalAlignment="Center" FontSize="20" Margin="10" Foreground="#FFBF00"/>
                 <TextBlock Text="{Binding PayAmountSum}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00" />
             </StackPanel>
         </StackPanel>
 
-        <Button Grid.Column="4" Grid.Row="2" Command="{Binding delete_car_admin}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" IsEnabled="{Binding IsEnableDone,FallbackValue=False}" Height="70" Width="70" ToolTip="MaterialDesignFloatingActionMiniLightButton">
-            <materialDesign:PackIcon Kind="Done" Height="50" Width="50" />
+
+        <Button Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Width="200" Command="{Binding delete_car_admin}" Style="{StaticResource MaterialDesignRaisedButton}" IsEnabled="{Binding IsEnableDone,FallbackValue=False}" Height="50" materialDesign:ButtonAssist.CornerRadius="10">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Done" Height="30" Width="30" Margin="0 0 10 0" />
+                <TextBlock Text="{lex:Loc accept_button_blank}" VerticalAlignment="Center" Margin="10 0 0 0"/>
+            </StackPanel>
         </Button>
 
     </Grid>

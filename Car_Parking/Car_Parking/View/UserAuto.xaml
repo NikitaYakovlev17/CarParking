@@ -39,12 +39,12 @@
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="{lex:Loc car_number}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="{lex:Loc car_region}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="2" Grid.Column="0" Content="{lex:Loc car_series}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="3" Grid.Column="0" Content="{lex:Loc space}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="4" Grid.Column="0" Content="{lex:Loc lease_time}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
-        <Label Grid.Row="5" Grid.Column="0" Content="{lex:Loc phone_number}" VerticalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="{lex:Loc car_number}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="{lex:Loc car_region}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="{lex:Loc car_series}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="{lex:Loc space}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="{lex:Loc lease_time}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="{lex:Loc phone_number}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="#FFBF00"/>
 
         <materialDesign:PackIcon Kind="CarBack" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <materialDesign:PackIcon Kind="City" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>

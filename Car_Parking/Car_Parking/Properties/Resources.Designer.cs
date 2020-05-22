@@ -70,6 +70,24 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ВСЕ АВТО.
+        /// </summary>
+        internal static string all_auto {
+            get {
+                return ResourceManager.GetString("all auto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на МАШИНА.
+        /// </summary>
+        internal static string car {
+            get {
+                return ResourceManager.GetString("car", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Номер авто :.
         /// </summary>
         internal static string car_number {
@@ -187,11 +205,47 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите номер телефона :.
+        /// </summary>
+        internal static string enter_phone {
+            get {
+                return ResourceManager.GetString("enter phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Такой пользователь уже существует.
         /// </summary>
         internal static string existserr {
             get {
                 return ResourceManager.GetString("existserr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполните поля :.
+        /// </summary>
+        internal static string fillAdminPage {
+            get {
+                return ResourceManager.GetString("fillAdminPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ИСТОРИЯ.
+        /// </summary>
+        internal static string history {
+            get {
+                return ResourceManager.GetString("history", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ГЛАВНАЯ.
+        /// </summary>
+        internal static string home {
+            get {
+                return ResourceManager.GetString("home", resourceCulture);
             }
         }
         
@@ -246,6 +300,24 @@ namespace Car_Parking.Properties {
         internal static string pass_name {
             get {
                 return ResourceManager.GetString("pass_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сумма к оплате :.
+        /// </summary>
+        internal static string payAmountSum {
+            get {
+                return ResourceManager.GetString("payAmountSum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ОПЛАТА.
+        /// </summary>
+        internal static string payment {
+            get {
+                return ResourceManager.GetString("payment", resourceCulture);
             }
         }
         
@@ -331,11 +403,65 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ПОИСК.
+        /// </summary>
+        internal static string search {
+            get {
+                return ResourceManager.GetString("search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сектор A.
+        /// </summary>
+        internal static string sector_A {
+            get {
+                return ResourceManager.GetString("sector A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сектор B.
+        /// </summary>
+        internal static string sector_B {
+            get {
+                return ResourceManager.GetString("sector B", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сектор С.
+        /// </summary>
+        internal static string sector_C {
+            get {
+                return ResourceManager.GetString("sector C", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сектор D.
+        /// </summary>
+        internal static string sector_D {
+            get {
+                return ResourceManager.GetString("sector D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Сектор :.
         /// </summary>
         internal static string space {
             get {
                 return ResourceManager.GetString("space", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Время проведенное на стоянке :.
+        /// </summary>
+        internal static string timeOnParking {
+            get {
+                return ResourceManager.GetString("timeOnParking", resourceCulture);
             }
         }
     }

@@ -84,6 +84,16 @@ namespace Car_Parking.ViewModel
             }
         }
 
+        private bool isAdmin;
+        public bool IsAdmin
+        {
+            get { return isAdmin; }
+            set
+            {
+                this.isAdmin = value;
+                RaisePropertiesChanged(nameof(IsAdmin));
+            }
+        }
 
         private string errorMes;
         public string ErrorMes
@@ -126,6 +136,7 @@ namespace Car_Parking.ViewModel
             ErrorMes = "";
             flag = true;
             bool flagToRegistata = true;
+            string AdminLogin = "+375(33)358-79-14";
             if(PhoneNumberLog == null || PhoneNumberLog == String.Empty || PhoneNumberLog.Length != 17)
             {
                 flagToRegistata = false;
@@ -146,12 +157,20 @@ namespace Car_Parking.ViewModel
                 flagToRegistata = false;
                 ErrorMes = Properties.Resources.emptyfield;
             }
+            if(PhoneNumberLog.Equals(AdminLogin))
+            {
+                IsAdmin = true;
+            }
+            else
+            {
+                IsAdmin = false;
+            }
             bool IsDone = true;
             if (flagToRegistata)
             {
                 SqlConnect spam = new SqlConnect();
                 string Pass = firstHash(PasswordFirst).ToString();
-                IsDone = spam.InsertUsersRecords(PhoneNumberLog, Pass);
+                IsDone = spam.InsertUsersRecords(PhoneNumberLog, Pass, IsAdmin);
                 if (IsDone)
                 {
                     ViewLogin t = new ViewLogin();

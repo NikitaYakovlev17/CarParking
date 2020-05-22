@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using System.Windows.Input;
+using Car_Parking.DB;
+using System.Globalization;
+using WPFLocalizeExtension.Engine;
+
 
 
 
@@ -12,6 +16,16 @@ namespace Car_Parking.ViewModel
 {
     class MainViewModel : ViewModelBase
     {
+        public MainViewModel()
+        {
+            SqlConnect spam = new SqlConnect();
+            bool admin = spam.IsAdminById();
+            if(admin)
+            {
+                PanelVisability = true;
+            }
+        }
+
         public Action CloseAction { get; set; }
 
         public ICommand logout => new DelegateCommand(LogoutCommand);
@@ -24,6 +38,25 @@ namespace Car_Parking.ViewModel
             ViewLogin q = new ViewLogin();
             q.Show();
             CloseAction();
+        }
+
+        public ICommand Language => new DelegateCommand(Set_Language);
+        private int q = 0;
+
+        private void Set_Language()
+        {
+            if (q == 0)
+            {
+                q++;
+                LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
+                LocalizeDictionary.Instance.Culture = new CultureInfo("en");
+            }
+            else
+            {
+                q--;
+                LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
+                LocalizeDictionary.Instance.Culture = new CultureInfo("");
+            }
         }
 
         private string periodicity;
@@ -46,9 +79,32 @@ namespace Car_Parking.ViewModel
                 RaisePropertiesChanged(nameof(UserName));
             }
         }
+
+        private bool panelVisability;
+        public bool PanelVisability
+        {
+            get { return panelVisability; }
+            set
+            {
+                this.panelVisability = value;
+                RaisePropertiesChanged(nameof(PanelVisability));
+            }
+        }
+
+
         private string getUserName()
         {
-            return Properties.Settings.Default.User;
+            SqlConnect spam = new SqlConnect();
+            bool admin = spam.IsAdminById();
+            if(admin)
+            {
+                UserName = "Admin";
+            }
+            else
+            {
+                UserName = "User";
+            }
+            return userName;
         }
         public object GridMain { get; private set; }
     }
