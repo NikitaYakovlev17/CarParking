@@ -13,10 +13,8 @@
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"
         
         mc:Ignorable="d"
-        Title="CarParking" Height="600" Width="1080" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" 
-        Icon="D:\2 КУРС 2 СЕМЕСТР\ООП\Курсовой проект\Car_Parking\Car_Parking\icon.ico">
-
- 
+        Loaded="OnLoad"
+        Title="CarParking" Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" >
     
     
     <Window.Resources>
@@ -68,15 +66,11 @@
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2"  FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="0"   Background="#FFBF00">
             <materialDesign:PopupBox HorizontalAlignment="Right" PlacementMode="BottomAndAlignLeftEdges" StaysOpen="False" Margin="10" Foreground="#FF353434">
                 <StackPanel Width="100">
-                    <Button Content="Settings"/>
-                    <Button Content="Account" FontFamily="Arial"/>
-                    <Button Content="Help"/>
-                    <Separator/>
                     <Button Content="Logout" Command="{Binding logout}"/>
                 </StackPanel>
             </materialDesign:PopupBox>
             <TextBlock Text="{Binding UserName}" HorizontalAlignment="Right" VerticalAlignment="Center"  FontSize="25" Margin="0 0 0 5" Foreground="#FF353434"/>
-            <TextBlock Text="CAR PARKING" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="300 0 0 0" Foreground="#FF353434"/>
+            <TextBlock Text="{lex:Loc app_name}" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="300 0 0 0" Foreground="#FF353434"/>
         </StackPanel>
 
 
@@ -101,17 +95,17 @@
                         <TextBlock Text="{lex:Loc home}" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
                     </StackPanel>
                 </ListViewItem>
-                
-                <ListViewItem x:Name="UserAuto" Height="50">
+
+                <ListViewItem x:Name="UserAuto" Height="50" Visibility="{Binding ButtonVisability,FallbackValue=1, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="CarHatchback"  Width="35" Height="35" Foreground="#FFBF00"/>
+                        <materialDesign:PackIcon Kind="CarHatchback"  Width="35" Height="35" Foreground="#FFBF00" />
                         <TextBlock Text="{lex:Loc car}" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
                     </StackPanel>
                 </ListViewItem>
-                
+
                 <ListViewItem x:Name="AdminPage" Height="50" Visibility="{Binding PanelVisability,FallbackValue=1, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <StackPanel Orientation="Horizontal" >
-                        <materialDesign:PackIcon Kind="AutomaticGateUpOutline" Width="35" Height="35" Foreground="#FFBF00"/>
+                        <materialDesign:PackIcon Kind="AttachMoney" Width="35" Height="35" Foreground="#FFBF00"/>
                         <TextBlock Text="{lex:Loc payment}" VerticalAlignment="Center"  Margin="20 5" FontSize="20" Foreground="#FFBF00"/>
                     </StackPanel>
                 </ListViewItem>

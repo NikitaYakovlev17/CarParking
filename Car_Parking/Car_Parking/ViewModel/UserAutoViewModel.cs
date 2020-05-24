@@ -1,4 +1,6 @@
 ﻿using Car_Parking.DB;
+using Car_Parking.Model;
+using Car_Parking.View;
 using DevExpress.Mvvm;
 using GalaSoft.MvvmLight.Command;
 using System;
@@ -10,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
+using System.Windows.Threading;
 
 namespace Car_Parking.ViewModel
 {
@@ -95,6 +99,22 @@ namespace Car_Parking.ViewModel
             }
         }
 
+        private ObservableCollection<Car> carsCollection;
+        public ObservableCollection<Car> CarsCollection
+        {
+            get
+            {
+                return carsCollection;
+            }
+            set
+            {
+                this.carsCollection = value;
+                RaisePropertiesChanged(nameof(CarsCollection));
+            }
+        }
+
+
+
         private string spaceType;
         public string SpaceType
         {
@@ -104,6 +124,52 @@ namespace Car_Parking.ViewModel
                 this.spaceType = value;
                 RaisePropertiesChanged(nameof(SpaceType));
             }
+        }
+
+        private bool panelVisability;
+        public bool PanelVisability
+        {
+            get { return panelVisability; }
+            set
+            {
+                this.panelVisability = value;
+                RaisePropertiesChanged(nameof(PanelVisability));
+            }
+        }
+
+        private bool panelVisabilityComboBox;
+        public bool PanelVisabilityComboBox
+        {
+            get { return panelVisabilityComboBox; }
+            set
+            {
+                this.panelVisabilityComboBox = value;
+                RaisePropertiesChanged(nameof(PanelVisabilityComboBox));
+            }
+        }
+
+        private DispatcherTimer dispatcherTimer = null;
+        private int _totalSeconds = 0;
+
+        private string timerText;
+        public string TimerText
+        {
+            get { return this.timerText; }
+            set
+            { 
+                this.timerText = value;
+                RaisePropertiesChanged(nameof(TimerText));
+            }
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            DateTime timeOut = DateTime.Now;
+            TimeSpan t = timeOut.Subtract(LeaseTime);
+            this._totalSeconds += 1;
+            TimerText = string.Format("{0:hh\\:mm\\:ss}", TimeSpan.FromSeconds(this._totalSeconds).Duration());
+            TimerText = t.ToString(@"dd\.hh\:mm\:ss");
+            CommandManager.InvalidateRequerySuggested();
         }
 
 
@@ -147,7 +213,6 @@ namespace Car_Parking.ViewModel
         public void AcceptCommand()
         {
             bool flagToAccept = true;
-            bool IsDone = true;
             flag = true;
             ErrorMes = "";
             if(CarNumber == null || CarNumber.Length != 4)
@@ -194,6 +259,54 @@ namespace Car_Parking.ViewModel
             }
         }
 
+
+
+
+        public UserAutoViewModel()
+        {
+            SqlConnect spam = new SqlConnect();
+            if(!spam.IsAdminById())
+            {
+                PanelVisability = true;
+                PanelVisabilityComboBox = false;
+                
+                PhoneNumber = Properties.Settings.Default.User;
+                SqlConnectionCar record = new SqlConnectionCar();
+                ObservableCollection<Car> carsDB = record.GiveUsersRecordsByPhoneNumber(PhoneNumber);
+                CarsCollection = new ObservableCollection<Car>();
+                if (carsDB != null)
+                {
+                    foreach (var item in carsDB)
+                        CarsCollection.Add(item);
+                }
+                if (CarsCollection.Count != 0)
+                {
+                    var carNumber = (from number in CarsCollection select number.CarNumber);
+                    CarNumber = carNumber.First();
+
+                    var carRegion = (from region in CarsCollection select region.CarRegion);
+                    CarRegion = carRegion.First();
+
+                    var carSeries = (from series in CarsCollection select series.CarSeries);
+                    CarSeries = carSeries.First();
+                    var carSpace = (from space in CarsCollection select space.SpaceType);
+                    SpaceType = carSpace.First();
+                    var leaseTime = (from time in CarsCollection select time.LeaseTime);
+                    LeaseTime = leaseTime.First();
+
+                    dispatcherTimer = new DispatcherTimer();
+                    dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+                    dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+                    dispatcherTimer.Start();
+                }
+
+            }
+            else
+            {
+                PanelVisability = false;
+                PanelVisabilityComboBox = true;
+            }
+        }
         
 
         #region Validation

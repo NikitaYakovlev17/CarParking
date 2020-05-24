@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
-
+using System.Windows;
 
 namespace Car_Parking.ViewModel
 {
@@ -240,8 +240,8 @@ namespace Car_Parking.ViewModel
         public ICommand enter => new DelegateCommand(EnterCommand);
         public void EnterCommand()
         {
-            ViewLogin q = new ViewLogin();
-            q.Show();
+            ViewLogin loginWindow = new ViewLogin();
+            loginWindow.Show();
             CloseAction();
         }
     }

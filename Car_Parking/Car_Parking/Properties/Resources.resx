@@ -123,6 +123,9 @@
   <data name="all auto" xml:space="preserve">
     <value>ВСЕ АВТО</value>
   </data>
+  <data name="app_name" xml:space="preserve">
+    <value>АВТОСТОЯНКА</value>
+  </data>
   <data name="car" xml:space="preserve">
     <value>МАШИНА</value>
   </data>
@@ -195,6 +198,9 @@
   <data name="nosuchuser" xml:space="preserve">
     <value>такого пользователя не существует</value>
   </data>
+  <data name="passwordFail" xml:space="preserve">
+    <value>Неверный пароль</value>
+  </data>
   <data name="pass_name" xml:space="preserve">
     <value>Пароль</value>
   </data>
@@ -205,7 +211,7 @@
     <value>ОПЛАТА</value>
   </data>
   <data name="phoneNumberEmpty" xml:space="preserve">
-    <value>Такого номера телефона не существует</value>
+    <value>Некорректный номер телефона</value>
   </data>
   <data name="phone_number" xml:space="preserve">
     <value>Номер телефона :</value>
@@ -220,16 +226,16 @@
     <value>Правила пользования парковкой</value>
   </data>
   <data name="rule_1" xml:space="preserve">
-    <value>1. Открытые парковки г. Минска функционируют в платном режиме в будние дни с 09.00 до 18.00. В остальное время, а также в выходные и праздничные дни – парковка бесплатна.</value>
+    <value>1. Открытые парковки г. Минска функционируют в платном режиме и делятся на сектора.</value>
   </data>
   <data name="rule_2" xml:space="preserve">
-    <value>2. Способы оплаты на различных парковках могут отличаться.</value>
+    <value>2. На каждом секторе цена отличается.</value>
   </data>
   <data name="rule_3" xml:space="preserve">
-    <value>3. После размещения транспортного средства на парковочном месте на территории платной автомобильной парковки необходимо осуществить оплату.</value>
+    <value>3. На парковке строго запрещается мусорить и препятствовать правильному размещению автомобилей.</value>
   </data>
   <data name="rule_4" xml:space="preserve">
-    <value>4. Покинуть парковочное место необходимо незамедлительно после истечения сеанса парковки (оплаченного времени).</value>
+    <value>4. Оплата за использование парковки происходит на выезде.</value>
   </data>
   <data name="search" xml:space="preserve">
     <value>ПОИСК</value>

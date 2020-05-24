@@ -38,12 +38,15 @@ namespace Car_Parking
             config.ConnectionStrings.ConnectionStrings.Add(setting);
             config.Save();
 
+
+
             if (Properties.Settings.Default.User == "")
             {
                 SqlConnect l = new SqlConnect();
                 l.ReadUsersRecords();
-                ViewLogin taskWindow = new ViewLogin();
-                taskWindow.Show();
+                ViewLogin loginWindow = new ViewLogin();
+                loginWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                loginWindow.Show();
                 this.Close();
             }
 
@@ -53,6 +56,13 @@ namespace Car_Parking
                 vm.CloseAction = new Action(this.Close);
             InitializeComponent();
         }
+
+        void OnLoad(object sender, RoutedEventArgs e)
+        {
+            Main.Navigate(new UserHome());
+        }
+
+
 
         private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)
         {

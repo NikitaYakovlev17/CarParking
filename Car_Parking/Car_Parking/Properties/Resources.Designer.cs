@@ -79,6 +79,15 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на АВТОСТОЯНКА.
+        /// </summary>
+        internal static string app_name {
+            get {
+                return ResourceManager.GetString("app_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на МАШИНА.
         /// </summary>
         internal static string car {
@@ -304,6 +313,15 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Неверный пароль.
+        /// </summary>
+        internal static string passwordFail {
+            get {
+                return ResourceManager.GetString("passwordFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Сумма к оплате :.
         /// </summary>
         internal static string payAmountSum {
@@ -331,7 +349,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Такого номера телефона не существует.
+        ///   Ищет локализованную строку, похожую на Некорректный номер телефона.
         /// </summary>
         internal static string phoneNumberEmpty {
             get {
@@ -358,7 +376,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 1. Открытые парковки г. Минска функционируют в платном режиме в будние дни с 09.00 до 18.00. В остальное время, а также в выходные и праздничные дни – парковка бесплатна..
+        ///   Ищет локализованную строку, похожую на 1. Открытые парковки г. Минска функционируют в платном режиме и делятся на сектора..
         /// </summary>
         internal static string rule_1 {
             get {
@@ -367,7 +385,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 2. Способы оплаты на различных парковках могут отличаться..
+        ///   Ищет локализованную строку, похожую на 2. На каждом секторе цена отличается..
         /// </summary>
         internal static string rule_2 {
             get {
@@ -376,7 +394,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 3. После размещения транспортного средства на парковочном месте на территории платной автомобильной парковки необходимо осуществить оплату..
+        ///   Ищет локализованную строку, похожую на 3. На парковке строго запрещается мусорить и препятствовать правильному размещению автомобилей..
         /// </summary>
         internal static string rule_3 {
             get {
@@ -385,7 +403,7 @@ namespace Car_Parking.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 4. Покинуть парковочное место необходимо незамедлительно после истечения сеанса парковки (оплаченного времени)..
+        ///   Ищет локализованную строку, похожую на 4. Оплата за использование парковки происходит на выезде..
         /// </summary>
         internal static string rule_4 {
             get {

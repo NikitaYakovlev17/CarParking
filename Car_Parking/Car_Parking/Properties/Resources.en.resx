@@ -123,8 +123,23 @@
   <data name="all auto" xml:space="preserve">
     <value>ALL AUTO</value>
   </data>
+  <data name="app_name" xml:space="preserve">
+    <value>CAR PARKING</value>
+  </data>
   <data name="car" xml:space="preserve">
     <value>CAR</value>
+  </data>
+  <data name="carNumberEmpty" xml:space="preserve">
+    <value>Incorrect car number</value>
+  </data>
+  <data name="carRegionEmpty" xml:space="preserve">
+    <value>Incorrect region</value>
+  </data>
+  <data name="carSeriesEmpty" xml:space="preserve">
+    <value>Incorrect series</value>
+  </data>
+  <data name="carSpaceEmpty" xml:space="preserve">
+    <value>Incorrect type of space</value>
   </data>
   <data name="car_number" xml:space="preserve">
     <value>Car number :</value>
@@ -153,6 +168,9 @@
   <data name="home" xml:space="preserve">
     <value>HOME</value>
   </data>
+  <data name="leaseTimeEmpty" xml:space="preserve">
+    <value>Incorrect time</value>
+  </data>
   <data name="lease_time" xml:space="preserve">
     <value>Start lease time :</value>
   </data>
@@ -165,6 +183,9 @@
   <data name="payment" xml:space="preserve">
     <value>PAYMENT</value>
   </data>
+  <data name="phoneNumberEmpty" xml:space="preserve">
+    <value>Incorrect phone number</value>
+  </data>
   <data name="phone_number" xml:space="preserve">
     <value>Phone number :</value>
   </data>
@@ -172,16 +193,16 @@
     <value>The rules of Parking</value>
   </data>
   <data name="rule_1" xml:space="preserve">
-    <value>1. Open Parking lots in Minsk operate in paid mode on weekdays from 09.00 to 18.00. During the rest of the day, as well as on weekends and holidays, Parking is free.</value>
+    <value>1. Open Parking lots in Minsk operate in a paid mode and are divided into sectors.</value>
   </data>
   <data name="rule_2" xml:space="preserve">
-    <value>2. Payment methods at different car parks may vary.</value>
+    <value>2. In each sector the price is different.</value>
   </data>
   <data name="rule_3" xml:space="preserve">
-    <value>3. after placing the vehicle in a Parking space on the territory of a paid car Park, payment must be made.</value>
+    <value>3. It is strictly forbidden to litter or obstruct the correct placement of cars in the Parking lot.</value>
   </data>
   <data name="rule_4" xml:space="preserve">
-    <value>4. Leave the Parking space immediately after the end of the Parking session (paid time).</value>
+    <value>4. Payment for the use of Parking is made at the exit.</value>
   </data>
   <data name="search" xml:space="preserve">
     <value>SEARCH</value>

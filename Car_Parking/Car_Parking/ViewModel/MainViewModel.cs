@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using System.Windows.Input;
 using Car_Parking.DB;
+using Car_Parking.Model;
 using System.Globalization;
 using WPFLocalizeExtension.Engine;
-
-
-
+using System.Collections.ObjectModel;
 
 namespace Car_Parking.ViewModel
 {
@@ -18,11 +17,31 @@ namespace Car_Parking.ViewModel
     {
         public MainViewModel()
         {
+            PhoneNumber = Properties.Settings.Default.User;
+            SqlConnectionCar record = new SqlConnectionCar();
+            ObservableCollection<Car> carsDB = record.GiveUsersRecordsByPhoneNumber(PhoneNumber);
+            CarsCollection = new ObservableCollection<Car>();
+            if (carsDB != null)
+            {
+                foreach (var item in carsDB)
+                    CarsCollection.Add(item);
+            }
+            if(CarsCollection.Count == 0)
+            {
+                ButtonVisability = false;
+            }
+            else
+            {
+                ButtonVisability = true;
+            }
+
+
             SqlConnect spam = new SqlConnect();
             bool admin = spam.IsAdminById();
-            if(admin)
+            if (admin)
             {
                 PanelVisability = true;
+                ButtonVisability = true;
             }
         }
 
@@ -59,6 +78,32 @@ namespace Car_Parking.ViewModel
             }
         }
 
+        private string phonenumber;
+        public string PhoneNumber
+        {
+            get { return phonenumber; }
+            set
+            {
+                if (value == this.phonenumber) return;
+                this.phonenumber = value;                
+                RaisePropertiesChanged(nameof(PhoneNumber));
+            }
+        }
+
+        private ObservableCollection<Car> carsCollection;
+        public ObservableCollection<Car> CarsCollection
+        {
+            get
+            {
+                return carsCollection;
+            }
+            set
+            {
+                this.carsCollection = value;
+                RaisePropertiesChanged(nameof(CarsCollection));
+            }
+        }
+
         private string periodicity;
         public string Periodicity
         {
@@ -88,6 +133,17 @@ namespace Car_Parking.ViewModel
             {
                 this.panelVisability = value;
                 RaisePropertiesChanged(nameof(PanelVisability));
+            }
+        }
+
+        private bool buttonVisability;
+        public bool ButtonVisability
+        {
+            get { return buttonVisability; }
+            set
+            {
+                this.buttonVisability = value;
+                RaisePropertiesChanged(nameof(ButtonVisability));
             }
         }
 

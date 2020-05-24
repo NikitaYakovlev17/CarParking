@@ -15,7 +15,7 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
 
         
-        Title="ViewRegister" Height="540" Width="340" ResizeMode="NoResize">
+        Title="ViewRegister" Height="540" Width="340" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     
     
     <Window.Resources>

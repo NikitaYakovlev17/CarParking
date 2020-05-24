@@ -167,6 +167,49 @@ namespace Car_Parking.DB
 
         }
 
+        public ObservableCollection<Car> GiveUsersRecordsByPhoneNumber(string phoneNumber)
+        {
+            using (SqlConnection connect = new SqlConnection(sqlString))
+            {
+                ObservableCollection<Car> spam = new ObservableCollection<Car>();
+
+                try
+                {
+                    connect.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connect;
+                    command.CommandText = @"Select * From UserCar Where PhoneNumber = @PhoneNumber";
+                    command.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 17);
+
+                    command.Parameters["@PhoneNumber"].Value = phoneNumber;
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            string car_number = reader["CarNumber"].ToString();
+                            int car_region = Convert.ToInt32(reader["CarRegion"]);
+                            string car_series = reader["CarSeries"].ToString();
+                            string spaceType = reader["SpaceType"].ToString();
+                            DateTime lease_time = Convert.ToDateTime(reader["LeaseTime"]);
+                            string phone_number = reader["PhoneNumber"].ToString();
+
+                            spam.Add(new Car() { CarNumber = car_number, CarRegion = car_region, CarSeries = car_series, SpaceType = spaceType, LeaseTime = lease_time, TimeOut = DateTime.Now, PhoneNumber = phone_number });
+                        }
+                    }
+                    return spam;
+
+
+                }
+                catch (Exception e)
+                {
+                    return spam;
+                }
+            }
+
+        }
+
 
         public bool DeleteCar(string carNumber, int carRegion, string carSeries)
         {

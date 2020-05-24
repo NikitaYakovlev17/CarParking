@@ -13,7 +13,7 @@
       lex:ResxLocalizationProvider.DefaultDictionary="Resources"        
       xmlns:viewmodel="clr-namespace:Car_Parking.ViewModel"
         
-        Title="ViewRegister" Background="#FF353434" Height="500" Width="320" ResizeMode="NoResize">
+        Title="ViewRegister" Background="#FF353434" Height="500" Width="320" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     
     
     <Window.Resources>

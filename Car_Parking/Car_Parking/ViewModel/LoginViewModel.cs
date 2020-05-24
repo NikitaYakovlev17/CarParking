@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
-
+using System.Windows;
 
 namespace Car_Parking.ViewModel
 {
@@ -186,8 +186,8 @@ namespace Car_Parking.ViewModel
 
         public void RegCommand()
         {
-            ViewRegister q = new ViewRegister();
-            q.Show();
+            ViewRegister registerWindow = new ViewRegister();
+            registerWindow.Show();
             CloseAction2();
         }
     }
